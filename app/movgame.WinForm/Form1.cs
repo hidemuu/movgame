@@ -48,12 +48,12 @@ namespace movgame.WinForm
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            game.keyCode = e.KeyCode;
+            game.gameEngine.keyCode = (int)e.KeyCode;
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            game.keyCode = 0;
+            game.gameEngine.keyCode = 0;
         }
     }
 }
