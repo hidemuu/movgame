@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\applications\movgame.Service\movgame.Service.csproj" />
+    <ProjectReference Include="..\..\src\presentations\movgame.WinForm.ViewModels\movgame.WinForm.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "sbUuX3uNH9HxpHV9PxFevB1l5WuzANn6boNaaxDmGxrAehhfyM07fdLdyXIoR62xiP3ngec1t4pAAC6j7SbYAA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\presentations\\movgame.WinForm.ViewModels\\movgame.WinForm.ViewModels.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nando\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
