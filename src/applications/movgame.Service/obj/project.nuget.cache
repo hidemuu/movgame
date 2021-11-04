@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "31QxGOGIdz2eLenUfXmbZ4uIcdDRr/TiXrAA0lsEiBtwZhtw0OmDh7YMKP3sRhsmNoOXr5d1x36P3PJs5MAtMA==",
+  "dgSpecHash": "NHRLYrvKEymgRC8rIqkma2SO2fFvSVH3a4ljKnDZI0d66kKnJuLcTyGmpuzs+f3Eg07ns6EK3dM8A6lI7kmyqA==",
   "success": true,
   "projectFilePath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\applications\\movgame.Service\\movgame.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nando\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }

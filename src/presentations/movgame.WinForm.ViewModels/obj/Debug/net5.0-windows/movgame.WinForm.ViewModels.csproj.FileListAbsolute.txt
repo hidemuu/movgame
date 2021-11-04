@@ -3,6 +3,8 @@ C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.WinForm.ViewMo
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.WinForm.ViewModels\bin\Debug\net5.0-windows\ref\movgame.WinForm.ViewModels.dll
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.WinForm.ViewModels\bin\Debug\net5.0-windows\movgame.WinForm.ViewModels.pdb
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.WinForm.ViewModels\bin\Debug\net5.0-windows\movgame.Models.dll
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.WinForm.ViewModels\bin\Debug\net5.0-windows\movgame.Service.dll
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.WinForm.ViewModels\bin\Debug\net5.0-windows\movgame.Service.pdb
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.WinForm.ViewModels\bin\Debug\net5.0-windows\movgame.Models.pdb
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.WinForm.ViewModels\obj\Debug\net5.0-windows\movgame.WinForm.ViewModels.csproj.AssemblyReference.cache
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.WinForm.ViewModels\obj\Debug\net5.0-windows\movgame.WinForm.ViewModels.GeneratedMSBuildEditorConfig.editorconfig

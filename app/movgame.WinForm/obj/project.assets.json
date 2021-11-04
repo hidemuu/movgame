@@ -67,6 +67,9 @@
       "movgame.Service/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "movgame.Models": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/movgame.Service.dll": {}
         },
@@ -78,7 +81,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "movgame.Models": "1.0.0"
+          "movgame.Service": "1.0.0"
         },
         "compile": {
           "bin/placeholder/movgame.WinForm.ViewModels.dll": {}
@@ -199,7 +202,6 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "movgame.Service >= 1.0.0",
       "movgame.WinForm.ViewModels >= 1.0.0"
     ]
   },
@@ -240,9 +242,6 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\applications\\movgame.Service\\movgame.Service.csproj": {
-              "projectPath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\applications\\movgame.Service\\movgame.Service.csproj"
-            },
             "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\presentations\\movgame.WinForm.ViewModels\\movgame.WinForm.ViewModels.csproj": {
               "projectPath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\presentations\\movgame.WinForm.ViewModels\\movgame.WinForm.ViewModels.csproj"
             }

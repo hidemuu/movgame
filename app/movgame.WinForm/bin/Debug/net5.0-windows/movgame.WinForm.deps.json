@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v5.0": {
       "movgame.WinForm/1.0.0": {
         "dependencies": {
-          "movgame.Service": "1.0.0",
           "movgame.WinForm.ViewModels": "1.0.0"
         },
         "runtime": {
@@ -55,13 +54,16 @@
         }
       },
       "movgame.Service/1.0.0": {
+        "dependencies": {
+          "movgame.Models": "1.0.0"
+        },
         "runtime": {
           "movgame.Service.dll": {}
         }
       },
       "movgame.WinForm.ViewModels/1.0.0": {
         "dependencies": {
-          "movgame.Models": "1.0.0"
+          "movgame.Service": "1.0.0"
         },
         "runtime": {
           "movgame.WinForm.ViewModels.dll": {}

@@ -1,10 +1,8 @@
+C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.dll
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.exe
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.deps.json
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.runtimeconfig.json
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.runtimeconfig.dev.json
-C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.dll
-C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\ref\movgame.WinForm.dll
-C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.pdb
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\System.Drawing.Common.dll
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
@@ -12,8 +10,8 @@ C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-win
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.Service.dll
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.ViewModels.dll
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.Service.pdb
-C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.ViewModels.pdb
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.Models.pdb
+C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.ViewModels.pdb
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\obj\Debug\net5.0-windows\movgame.WinForm.csproj.AssemblyReference.cache
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\obj\Debug\net5.0-windows\movgame.WinForm.Form1.resources
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\obj\Debug\net5.0-windows\movgame.WinForm.csproj.GenerateResource.cache
@@ -26,3 +24,5 @@ C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\obj\Debug\net5.0-win
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\obj\Debug\net5.0-windows\ref\movgame.WinForm.dll
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\obj\Debug\net5.0-windows\movgame.WinForm.pdb
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\obj\Debug\net5.0-windows\movgame.WinForm.genruntimeconfig.cache
+C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\ref\movgame.WinForm.dll
+C:\Users\nando\Documents\GitHub\movgame\app\movgame.WinForm\bin\Debug\net5.0-windows\movgame.WinForm.pdb

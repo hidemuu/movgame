@@ -63,6 +63,19 @@
         "runtime": {
           "bin/placeholder/movgame.Models.dll": {}
         }
+      },
+      "movgame.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "movgame.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/movgame.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/movgame.Service.dll": {}
+        }
       }
     }
   },
@@ -159,11 +172,16 @@
       "type": "project",
       "path": "../../domains/movgame.Models/movgame.Models.csproj",
       "msbuildProject": "../../domains/movgame.Models/movgame.Models.csproj"
+    },
+    "movgame.Service/1.0.0": {
+      "type": "project",
+      "path": "../../applications/movgame.Service/movgame.Service.csproj",
+      "msbuildProject": "../../applications/movgame.Service/movgame.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "movgame.Models >= 1.0.0"
+      "movgame.Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -203,8 +221,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\domains\\movgame.Models\\movgame.Models.csproj": {
-              "projectPath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\domains\\movgame.Models\\movgame.Models.csproj"
+            "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\applications\\movgame.Service\\movgame.Service.csproj": {
+              "projectPath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\applications\\movgame.Service\\movgame.Service.csproj"
             }
           }
         }

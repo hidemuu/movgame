@@ -1,0 +1,9 @@
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\bin\Debug\netstandard2.0\movgame.Repository.deps.json
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\bin\Debug\netstandard2.0\movgame.Repository.dll
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\bin\Debug\netstandard2.0\movgame.Repository.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\Debug\netstandard2.0\movgame.Repository.AssemblyInfoInputs.cache
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\Debug\netstandard2.0\movgame.Repository.AssemblyInfo.cs
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\Debug\netstandard2.0\movgame.Repository.csproj.CoreCompileInputs.cache
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\Debug\netstandard2.0\movgame.Repository.dll
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\Debug\netstandard2.0\movgame.Repository.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\Debug\netstandard2.0\movgame.Repository.csproj.AssemblyReference.cache

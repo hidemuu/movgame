@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\applications\movgame.Service\movgame.Service.csproj" />
+    <ProjectReference Include="..\movgame.Wpf.Views\movgame.Wpf.Views.csproj" />
+  </ItemGroup>
+
+</Project>

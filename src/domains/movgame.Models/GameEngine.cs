@@ -1,4 +1,6 @@
 ﻿using movgame.Models;
+using movgame.Models.Characters;
+using movgame.Models.Maps;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,10 @@ namespace movgame.Models
     {
         #region 定数
 
-        public const int LEFT = 37;
-        public const int RIGHT = 39;
-        public const int UP = 38;
-        public const int DOWN = 40;
+        public const int KEY_CODE_LEFT = 37;
+        public const int KEY_CODE_RIGHT = 39;
+        public const int KEY_CODE_UP = 38;
+        public const int KEY_CODE_DOWN = 40;
 
         #endregion
 

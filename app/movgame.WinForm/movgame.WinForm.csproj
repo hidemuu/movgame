@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\applications\movgame.Service\movgame.Service.csproj" />
     <ProjectReference Include="..\..\src\presentations\movgame.WinForm.ViewModels\movgame.WinForm.ViewModels.csproj" />
   </ItemGroup>
 

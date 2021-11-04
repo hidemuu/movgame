@@ -69,6 +69,9 @@
         }
       },
       "movgame.Service/1.0.0": {
+        "dependencies": {
+          "movgame.Models": "1.0.0"
+        },
         "runtime": {
           "movgame.Service.dll": {}
         }

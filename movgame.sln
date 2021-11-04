@@ -21,9 +21,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.Models", "src\domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.Service", "src\applications\movgame.Service\movgame.Service.csproj", "{75F88934-A840-48CB-902E-406F4B3DE032}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.WinForm", "app\movgame.WinForm\movgame.WinForm.csproj", "{10E09224-6093-4A61-B2FF-4E0AB1A811BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.WinForm", "app\movgame.WinForm\movgame.WinForm.csproj", "{10E09224-6093-4A61-B2FF-4E0AB1A811BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.WinForm.ViewModels", "src\presentations\movgame.WinForm.ViewModels\movgame.WinForm.ViewModels.csproj", "{E39EFC50-5A7C-4773-A44F-097CD45BA617}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.WinForm.ViewModels", "src\presentations\movgame.WinForm.ViewModels\movgame.WinForm.ViewModels.csproj", "{E39EFC50-5A7C-4773-A44F-097CD45BA617}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.Wpf", "app\movgame.Wpf\movgame.Wpf.csproj", "{C2D48AAC-1518-4396-856B-340CC5E45D98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.Wpf.Views", "src\presentations\movgame.Wpf.Views\movgame.Wpf.Views.csproj", "{E798E22D-242F-4DF3-8A23-D723AE02B99C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.Wpf.ViewModels", "src\presentations\movgame.Wpf.ViewModels\movgame.Wpf.ViewModels.csproj", "{DE21745B-AC52-40BA-92CE-F4A9C8B60B51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.Repository", "src\applications\movgame.Repository\movgame.Repository.csproj", "{BAB08259-9010-4E83-A91F-D5E6AF16F9E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.Utilities", "src\infrastructures\movgame.Utilities\movgame.Utilities.csproj", "{516EBA85-3FBA-4DC9-979A-ABEBFE4BDCA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +61,26 @@ Global
 		{E39EFC50-5A7C-4773-A44F-097CD45BA617}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E39EFC50-5A7C-4773-A44F-097CD45BA617}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E39EFC50-5A7C-4773-A44F-097CD45BA617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D48AAC-1518-4396-856B-340CC5E45D98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D48AAC-1518-4396-856B-340CC5E45D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D48AAC-1518-4396-856B-340CC5E45D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D48AAC-1518-4396-856B-340CC5E45D98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E798E22D-242F-4DF3-8A23-D723AE02B99C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E798E22D-242F-4DF3-8A23-D723AE02B99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E798E22D-242F-4DF3-8A23-D723AE02B99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E798E22D-242F-4DF3-8A23-D723AE02B99C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE21745B-AC52-40BA-92CE-F4A9C8B60B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE21745B-AC52-40BA-92CE-F4A9C8B60B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE21745B-AC52-40BA-92CE-F4A9C8B60B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE21745B-AC52-40BA-92CE-F4A9C8B60B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB08259-9010-4E83-A91F-D5E6AF16F9E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB08259-9010-4E83-A91F-D5E6AF16F9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB08259-9010-4E83-A91F-D5E6AF16F9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB08259-9010-4E83-A91F-D5E6AF16F9E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{516EBA85-3FBA-4DC9-979A-ABEBFE4BDCA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{516EBA85-3FBA-4DC9-979A-ABEBFE4BDCA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{516EBA85-3FBA-4DC9-979A-ABEBFE4BDCA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{516EBA85-3FBA-4DC9-979A-ABEBFE4BDCA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +95,11 @@ Global
 		{75F88934-A840-48CB-902E-406F4B3DE032} = {ED0BF099-0178-4462-B4BA-DCAB319622C6}
 		{10E09224-6093-4A61-B2FF-4E0AB1A811BC} = {129A551F-3572-4965-ADED-4CAD9AFE3730}
 		{E39EFC50-5A7C-4773-A44F-097CD45BA617} = {EE0F929C-108C-4574-B5AC-1AF15B41F896}
+		{C2D48AAC-1518-4396-856B-340CC5E45D98} = {129A551F-3572-4965-ADED-4CAD9AFE3730}
+		{E798E22D-242F-4DF3-8A23-D723AE02B99C} = {EE0F929C-108C-4574-B5AC-1AF15B41F896}
+		{DE21745B-AC52-40BA-92CE-F4A9C8B60B51} = {EE0F929C-108C-4574-B5AC-1AF15B41F896}
+		{BAB08259-9010-4E83-A91F-D5E6AF16F9E4} = {ED0BF099-0178-4462-B4BA-DCAB319622C6}
+		{516EBA85-3FBA-4DC9-979A-ABEBFE4BDCA4} = {D73D0431-E59C-443C-AEAA-6CC39D1A0854}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {716AAF40-DCF3-4971-B2B1-4063C61372DD}

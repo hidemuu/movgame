@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\domains\movgame.Models\movgame.Models.csproj" />
+    <ProjectReference Include="..\..\applications\movgame.Service\movgame.Service.csproj" />
   </ItemGroup>
 
 </Project>

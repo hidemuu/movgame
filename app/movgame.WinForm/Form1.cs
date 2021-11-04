@@ -1,4 +1,5 @@
 ﻿using movgame.WinForm.ViewModels;
+using movgame.WinForm.ViewModels.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace movgame.WinForm
 {
     public partial class Form1 : Form
     {
-        protected Game game;
+        protected GameService service;
 
         public Form1()
         {
@@ -22,23 +23,23 @@ namespace movgame.WinForm
 
         protected virtual void Init()
         {
-            game = new Game(this);
+            service = new GameService(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             Init();
-            game.Run();
+            service.Run();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            game.End();
+            service.End();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            game.Draw(e.Graphics);
+            service.Draw(e.Graphics);
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -48,12 +49,12 @@ namespace movgame.WinForm
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            game.gameEngine.keyCode = (int)e.KeyCode;
+            service.SetKeyCode((int)e.KeyCode);
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            game.gameEngine.keyCode = 0;
+            service.SetKeyCode(0);
         }
     }
 }

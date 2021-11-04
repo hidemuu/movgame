@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "movgame.WinForm.ViewModels/1.0.0": {
         "dependencies": {
-          "movgame.Models": "1.0.0"
+          "movgame.Service": "1.0.0"
         },
         "runtime": {
           "movgame.WinForm.ViewModels.dll": {}
@@ -52,6 +52,14 @@
         "runtime": {
           "movgame.Models.dll": {}
         }
+      },
+      "movgame.Service/1.0.0": {
+        "dependencies": {
+          "movgame.Models": "1.0.0"
+        },
+        "runtime": {
+          "movgame.Service.dll": {}
+        }
       }
     }
   },
@@ -83,6 +91,11 @@
       "hashPath": "system.drawing.common.5.0.2.nupkg.sha512"
     },
     "movgame.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "movgame.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
