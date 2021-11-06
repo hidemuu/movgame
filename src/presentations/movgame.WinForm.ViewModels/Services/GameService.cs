@@ -10,54 +10,34 @@ namespace movgame.WinForm.ViewModels.Services
 {
     public class GameService : GameServiceBase
     {
-        /// <summary>
-        /// ビットマップ画面
-        /// </summary>
-        Bitmap screenBmp;
-
-        /// <summary>
-        /// グラフィック
-        /// </summary>
-        Graphics graphics;
-
+       
         /// <summary>
         /// フォームインスタンス
         /// </summary>
         Form form;
 
-        public override Color BackgroundColor { get; set; }
-
         public GameService(Form form) : base()
         {
             this.form = form;
-            screenBmp = new Bitmap(FrameWidth, FrameHeight);
-            graphics = Graphics.FromImage(screenBmp);
             this.form.ClientSize = new Size(FrameWidth, FrameHeight);
-            BackgroundColor = this.form.BackColor;
         }
 
-        public override void ClearScreen(Color backgroundColor)
+        protected override void ClearScreen()
         {
-            graphics.Clear(backgroundColor);
+            ScreenGraphics.Clear(this.form.BackColor);
         }
 
-        public override void DisposeScreen()
+        protected override void DisposeScreen()
         {
-            graphics.Dispose();
+            ScreenGraphics.Dispose();
         }
 
-        public void Draw(Graphics g)
+        protected override void DrawCharacter(CharacterBase character)
         {
-            if (IsBuilding) return;
-            g.DrawImage(screenBmp, 0, 0);
+            character.Draw(ScreenGraphics);
         }
 
-        public override void DrawCharacter(Character character)
-        {
-            character.Draw(graphics);
-        }
-
-        public override void InvalidateScreen()
+        protected override void InvalidateScreen()
         {
             this.form.Invalidate();
         }

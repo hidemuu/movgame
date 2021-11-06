@@ -36,7 +36,7 @@ namespace movgame.Models
         /// <summary>
         /// キャラクタ配列
         /// </summary>
-        public List<Character> characters;
+        public List<CharacterBase> characters;
         /// <summary>
         /// 敵キャラ配列
         /// </summary>
@@ -49,7 +49,7 @@ namespace movgame.Models
 
         public GameEngine()
         {
-            characters = new List<Character>();
+            characters = new List<CharacterBase>();
             aliens = new List<Alien>();
         }
 
@@ -58,11 +58,11 @@ namespace movgame.Models
         /// <summary>
         /// 初期化処理
         /// </summary>
-        public virtual void Init()
+        public virtual void Initialize()
         {
             map = GameMap.MakeMap();
             AddCharacters(characters, map);
-            SortCharacters(new int[] { Character.WALL, Character.ALIEN, Character.PLAYER });
+            SortCharacters(new int[] { CharacterBase.WALL, CharacterBase.ALIEN, CharacterBase.PLAYER });
         }
 
         /// <summary>
@@ -77,9 +77,9 @@ namespace movgame.Models
             {
                 dic.Add(t, val++);
             }
-            characters.Sort(delegate (Character x, Character y)
+            characters.Sort(delegate (CharacterBase x, CharacterBase y)
             {
-                var dif = dic[x.type] - dic[y.type];
+                var dif = dic[x.TypeCode] - dic[y.TypeCode];
                 if (dif > 0) return 1;
                 else if (dif < 0) return -1;
                 return 0;
@@ -91,7 +91,7 @@ namespace movgame.Models
         /// </summary>
         /// <param name="characters"></param>
         /// <param name="map"></param>
-        protected void AddCharacters(List<Character> characters, int[,] map)
+        protected void AddCharacters(List<CharacterBase> characters, int[,] map)
         {
             var row = map.GetLength(0);
             var col = map.GetLength(1);
@@ -100,12 +100,12 @@ namespace movgame.Models
                 for (var c = 0; c < col; c++)
                 {
                     var type = map[r, c];
-                    if (type != Character.ROAD)
+                    if (type != CharacterBase.ROAD)
                     {
                         var character = MakeCharacter(type);
                         character.SetPos(c * unitWidth, r * unitHeight);
                         characters.Add(character);
-                        if (type == Character.ALIEN)
+                        if (type == CharacterBase.ALIEN)
                         {
                             aliens.Add((Alien)character);
                         }
@@ -118,7 +118,7 @@ namespace movgame.Models
         /// </summary>
         /// <param name="characters"></param>
         /// <param name="targets"></param>
-        protected void AddCharacters(List<Character> characters, Character[] targets)
+        protected void AddCharacters(List<CharacterBase> characters, CharacterBase[] targets)
         {
             foreach (var target in targets)
             {
@@ -130,7 +130,7 @@ namespace movgame.Models
         /// </summary>
         /// <param name="characters"></param>
         /// <param name="character"></param>
-        protected void AddCharacters(List<Character> characters, Character character)
+        protected void AddCharacters(List<CharacterBase> characters, CharacterBase character)
         {
             characters.Add(character);
         }
@@ -139,13 +139,13 @@ namespace movgame.Models
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        protected virtual Character MakeCharacter(int type)
+        protected virtual CharacterBase MakeCharacter(int type)
         {
             switch (type)
             {
-                case Character.WALL: return new Wall(this);
-                case Character.PLAYER: return new Player(this);
-                case Character.ALIEN: return new Alien(this);
+                case CharacterBase.WALL: return new Wall(this);
+                case CharacterBase.PLAYER: return new Player(this);
+                case CharacterBase.ALIEN: return new Alien(this);
                 default: return null;
             }
         }
@@ -161,10 +161,10 @@ namespace movgame.Models
             var col1 = x / unitWidth;
             var row2 = (y + unitHeight - 1) / unitHeight;
             var col2 = (x + unitWidth - 1) / unitWidth;
-            return map[row1, col1] == Character.WALL ||
-                   map[row1, col2] == Character.WALL ||
-                   map[row2, col1] == Character.WALL ||
-                   map[row2, col2] == Character.WALL;
+            return map[row1, col1] == CharacterBase.WALL ||
+                   map[row1, col2] == CharacterBase.WALL ||
+                   map[row2, col1] == CharacterBase.WALL ||
+                   map[row2, col2] == CharacterBase.WALL;
         }
         /// <summary>
         /// 衝突検出
@@ -173,15 +173,15 @@ namespace movgame.Models
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public int GetCollision(Character target, int x, int y)
+        public int GetCollision(CharacterBase target, int x, int y)
         {
             foreach (var character in characters)
             {
-                if (character.type > Character.WALL && character != target)
+                if (character.TypeCode > CharacterBase.WALL && character != target)
                 {
-                    if (Math.Abs(character.x - x) < unitWidth && Math.Abs(character.y - y) < unitHeight)
+                    if (Math.Abs(character.X - x) < unitWidth && Math.Abs(character.Y - y) < unitHeight)
                     {
-                        return character.type;
+                        return character.TypeCode;
                     }
                 }
             }

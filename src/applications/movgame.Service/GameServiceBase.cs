@@ -13,7 +13,7 @@ namespace movgame.Service
     /// <summary>
     /// ゲームサービス基本クラス
     /// </summary>
-    public abstract class GameServiceBase
+    public abstract class GameServiceBase : IGameService
     {
         #region フィールド
 
@@ -31,6 +31,11 @@ namespace movgame.Service
         /// </summary>
         private GameEngine gameEngine;
 
+        /// <summary>
+        /// ビットマップ画面
+        /// </summary>
+        private Bitmap screenBmp;
+
         #endregion
 
         #region プロパティ
@@ -38,21 +43,19 @@ namespace movgame.Service
         /// <summary>
         /// 画面幅
         /// </summary>
-        public int FrameWidth { get; private set; }
+        protected int FrameWidth { get; private set; }
         /// <summary>
         /// 画面高さ
         /// </summary>
-        public int FrameHeight { get; private set; }
+        protected int FrameHeight { get; private set; }
         /// <summary>
         /// ビットマップ画面作成中フラグ
         /// </summary>
-        public bool IsBuilding { get; private set; } = false;
-
-        #endregion
-
-        #region 抽象プロパティ
-
-        public abstract Color BackgroundColor { get; set; }
+        protected bool IsBuilding { get; private set; } = false;
+        /// <summary>
+        /// グラフィック
+        /// </summary>
+        protected Graphics ScreenGraphics { get; private set; }
 
         #endregion
 
@@ -61,6 +64,8 @@ namespace movgame.Service
             gameEngine = new GameEngine();
             FrameWidth = GameMap.col * gameEngine.unitWidth;
             FrameHeight = GameMap.row * gameEngine.unitHeight;
+            screenBmp = new Bitmap(FrameWidth, FrameHeight);
+            ScreenGraphics = Graphics.FromImage(screenBmp);
         }
 
         #region メソッド
@@ -68,9 +73,9 @@ namespace movgame.Service
         /// <summary>
         /// 初期化処理
         /// </summary>
-        public virtual void Init()
+        public virtual void Initialize()
         {
-            gameEngine.Init();
+            gameEngine.Initialize();
         }
 
 
@@ -80,7 +85,7 @@ namespace movgame.Service
         /// </summary>
         public void Run()
         {
-            Init();
+            Initialize();
 
             //マルチスレッド処理
             task = Task.Run(() =>
@@ -92,14 +97,14 @@ namespace movgame.Service
                     //キャラクタの移動処理
                     foreach (var character in gameEngine.characters)
                     {
-                        if (character.type >= Character.PLAYER) character.Move();
+                        if (character.TypeCode >= CharacterBase.PLAYER) character.Move();
                     }
                     //ビットマップ画面の作成処理
                     IsBuilding = true;
-                    ClearScreen(BackgroundColor);
+                    ClearScreen();
                     foreach (var character in gameEngine.characters)
                     {
-                        if (character.type != Character.ROAD) DrawCharacter(character);
+                        if (character.TypeCode != CharacterBase.ROAD) DrawCharacter(character);
                     }
                     IsBuilding = false;
                     //再描画要求
@@ -128,14 +133,20 @@ namespace movgame.Service
             gameEngine.keyCode = keyCode;
         }
 
+        public void Draw(Graphics graphics)
+        {
+            if (IsBuilding) return;
+            graphics.DrawImage(screenBmp, 0, 0);
+        }
+
         #endregion
 
         #region 抽象メソッド - テンプレート
 
-        public abstract void ClearScreen(Color backgroundColor);
-        public abstract void DrawCharacter(Character character);
-        public abstract void InvalidateScreen();
-        public abstract void DisposeScreen();
+        protected abstract void ClearScreen();
+        protected abstract void DrawCharacter(CharacterBase character);
+        protected abstract void InvalidateScreen();
+        protected abstract void DisposeScreen();
 
         #endregion
 

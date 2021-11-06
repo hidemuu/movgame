@@ -5,7 +5,7 @@ using System.Text;
 
 namespace movgame.Models.Characters
 {
-    public class Alien : Character
+    public class Alien : CharacterBase
     {
         #region フィールド
         /// <summary>
@@ -18,15 +18,16 @@ namespace movgame.Models.Characters
         int[] tryPlan = { 1, 3, 2 };
         #endregion
 
+        public override int TypeCode { get; protected set; } = ALIEN;
+
         public Alien(GameEngine gameEngine) : base(gameEngine)
         {
-            type = ALIEN;
         }
 
         #region メソッド
-        public override void Draw(Graphics g)
+        public override void Draw(Graphics graphics)
         {
-            g.FillRectangle(brush, x + 2, y + 2, gameEngine.unitWidth - 4, gameEngine.unitHeight - 4);
+            graphics.FillRectangle(brush, X + 2, Y + 2, GameEngine.unitWidth - 4, GameEngine.unitHeight - 4);
         }
         /// <summary>
         /// 移動先を設定
@@ -48,15 +49,15 @@ namespace movgame.Models.Characters
         /// </summary>
         public void MoveExec()
         {
-            var x1 = x + dirOffset[nextDirection, 0];
-            var y1 = y + dirOffset[nextDirection, 1];
-            if (gameEngine.IsWall(x1, y1) || gameEngine.GetCollision(this, x1, y1) != -1)
+            var x1 = X + dirOffset[nextDirection, 0];
+            var y1 = Y + dirOffset[nextDirection, 1];
+            if (GameEngine.IsWall(x1, y1) || GameEngine.GetCollision(this, x1, y1) != -1)
             {
                 nextDirection = (nextDirection + tryPlan[(int)(rnd.NextDouble() * 2.1)]) % 4;
-                x1 = x + dirOffset[nextDirection, 0];
-                y1 = y + dirOffset[nextDirection, 1];
+                x1 = X + dirOffset[nextDirection, 0];
+                y1 = Y + dirOffset[nextDirection, 1];
             }
-            if (!gameEngine.IsWall(x1, y1) && gameEngine.GetCollision(this, x1, y1) == -1)
+            if (!GameEngine.IsWall(x1, y1) && GameEngine.GetCollision(this, x1, y1) == -1)
             {
                 direction = nextDirection;
                 SetPos(x1, y1);

@@ -5,19 +5,31 @@ using System.Text;
 
 namespace movgame.Models.Characters
 {
-    public class Player : Character
+    /// <summary>
+    /// プレイヤークラス
+    /// </summary>
+    public class Player : CharacterBase
     {
+        #region フィールド
+
         static Brush brush = new SolidBrush(Color.CornflowerBlue);
         int lastDx = -1;
         int lastDy = -1;
 
+        #endregion
+
+        public override int TypeCode { get; protected set; } = PLAYER;
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="gameEngine"></param>
         public Player(GameEngine gameEngine) : base(gameEngine)
         {
-            type = PLAYER;
         }
-        public override void Draw(Graphics g)
+        public override void Draw(Graphics graphics)
         {
-            g.FillRectangle(brush, x + 2, y + 2, gameEngine.unitWidth - 4, gameEngine.unitHeight - 4);
+            graphics.FillRectangle(brush, X + 2, Y + 2, GameEngine.unitWidth - 4, GameEngine.unitHeight - 4);
         }
 
         public override void Move()
@@ -25,10 +37,10 @@ namespace movgame.Models.Characters
             var dx = 0;
             var dy = 0;
 
-            if(gameEngine.keyCode == 0)
+            if(GameEngine.keyCode == 0)
             {
                 //  キーが離された後の状態
-                if (x % gameEngine.unitWidth != 0 || y % gameEngine.unitHeight != 0)
+                if (X % GameEngine.unitWidth != 0 || Y % GameEngine.unitHeight != 0)
                 {
                     //1マスの中間位置は移動継続
                     dx = lastDx;
@@ -36,14 +48,14 @@ namespace movgame.Models.Characters
                 }
                 else
                 {
-                    gameEngine.keyCode = 0;
+                    GameEngine.keyCode = 0;
                     return;
                 }
             }
             else
             {
                 //押されているキーに対する処理
-                switch (gameEngine.keyCode)
+                switch (GameEngine.keyCode)
                 {
                     case GameEngine.KEY_CODE_LEFT: dx = -1; break;
                     case GameEngine.KEY_CODE_RIGHT: dx = 1; break;
@@ -54,9 +66,9 @@ namespace movgame.Models.Characters
             }
 
             //壁でなく他のキャラに衝突しなければ進む
-            var x1 = x + dx;
-            var y1 = y + dy;
-            if (!gameEngine.IsWall(x1, y1) && gameEngine.GetCollision(this, x1, y1) == -1)
+            var x1 = X + dx;
+            var y1 = Y + dy;
+            if (!GameEngine.IsWall(x1, y1) && GameEngine.GetCollision(this, x1, y1) == -1)
             {
                 SetPos(x1, y1);
                 lastDx = dx;

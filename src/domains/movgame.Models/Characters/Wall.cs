@@ -5,18 +5,19 @@ using System.Text;
 
 namespace movgame.Models.Characters
 {
-    public class Wall : Character
+    public class Wall : CharacterBase
     {
         static Brush brush = new SolidBrush(Color.DarkGray);
 
+        public override int TypeCode { get; protected set; } = WALL;
+
         public Wall(GameEngine gameEngine) : base(gameEngine)
         {
-            type = WALL;
         }
 
-        public override void Draw(Graphics g)
+        public override void Draw(Graphics graphics)
         {
-            g.FillRectangle(brush, x, y, gameEngine.unitWidth, gameEngine.unitHeight);
+            graphics.FillRectangle(brush, X, Y, GameEngine.unitWidth, GameEngine.unitHeight);
         }
 
         public override void Move()

@@ -3,10 +3,39 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:movgame.Wpf.Views"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <DockPanel Margin="10">
+        <StackPanel DockPanel.Dock="Top"
+                    Orientation="Horizontal">
+            <TextBlock Margin="0 0 10 0" 
+                       Text="Score"
+                       Foreground="White"/>
+            <TextBlock x:Name="TextBlockScore"
+                       Text="500"
+                       Foreground="White"/>
+        </StackPanel>
+        <ItemsControl ItemsSource="{Binding Path=Models}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Rectangle Width="{Binding Path=Width}" Height="{Binding Path=Height}" Fill="{Binding Path=Color}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Canvas.Top" Value="{Binding Path=Top}" />
+                    <Setter Property="Canvas.Left" Value="{Binding Path=Left}" />
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+    </DockPanel>
 </Window>

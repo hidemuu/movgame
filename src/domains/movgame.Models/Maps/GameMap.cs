@@ -27,9 +27,9 @@ namespace movgame.Models.Maps
         #endregion
 
         #region フィールド
-        static int[,] map;
-        static string mark =  ROAD + WALL + PALYER + ALIEN;
-        static string[] mapData =
+        private static int[,] map;
+        private static string mark =  ROAD + WALL + PALYER + ALIEN;
+        private static string[] mapData =
         {
             "＃＃＃＃＃＃＃＃＃＃＃＃",
             "＃＠＿＿＿＿＃＃＿＿＠＃",

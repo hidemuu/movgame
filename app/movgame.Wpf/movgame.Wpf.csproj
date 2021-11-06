@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\presentations\movgame.Wpf.ViewModels\movgame.Wpf.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>

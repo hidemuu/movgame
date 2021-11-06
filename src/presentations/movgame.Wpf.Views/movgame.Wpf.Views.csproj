@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\infrastructures\movgame.ViewDesigns.Wpf\movgame.ViewDesigns.Wpf.csproj" />
+    <ProjectReference Include="..\movgame.Wpf.Models\movgame.Wpf.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>

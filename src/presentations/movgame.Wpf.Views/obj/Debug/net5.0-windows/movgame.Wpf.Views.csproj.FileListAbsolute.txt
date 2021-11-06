@@ -17,3 +17,8 @@ C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\movgame.Wpf.Views.dll
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\ref\movgame.Wpf.Views.dll
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\movgame.Wpf.Views.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\bin\Debug\net5.0-windows\movgame.ViewDesigns.Wpf.dll
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\bin\Debug\net5.0-windows\movgame.Wpf.Models.dll
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\bin\Debug\net5.0-windows\movgame.ViewDesigns.Wpf.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\bin\Debug\net5.0-windows\movgame.Wpf.Models.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\movgame.Wpf.Views.csproj.CopyComplete

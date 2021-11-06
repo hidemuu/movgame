@@ -1,0 +1,12 @@
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\bin\Debug\net5.0-windows\movgame.Wpf.Models.deps.json
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\bin\Debug\net5.0-windows\movgame.Wpf.Models.dll
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\bin\Debug\net5.0-windows\ref\movgame.Wpf.Models.dll
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\bin\Debug\net5.0-windows\movgame.Wpf.Models.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\movgame.Wpf.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\movgame.Wpf.Models.AssemblyInfoInputs.cache
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\movgame.Wpf.Models.AssemblyInfo.cs
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\movgame.Wpf.Models.csproj.CoreCompileInputs.cache
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\movgame.Wpf.Models.dll
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\ref\movgame.Wpf.Models.dll
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\movgame.Wpf.Models.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\movgame.Wpf.Models.csproj.AssemblyReference.cache

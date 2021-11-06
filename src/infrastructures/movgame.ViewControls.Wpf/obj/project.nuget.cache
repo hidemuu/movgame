@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "42cMJ/RraZWJ1y5PnbFI4Ntm48WWDvDM2k/1TtmpX5CaezBSMwS0lstUn2z9jiQvWyqZhl82bhImC8l3YemUig==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\infrastructures\\movgame.ViewControls.Wpf\\movgame.ViewControls.Wpf.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nando\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\reactiveproperty\\7.12.0\\reactiveproperty.7.12.0.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\reactiveproperty.core\\7.12.0\\reactiveproperty.core.7.12.0.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\reactiveproperty.wpf\\7.12.0\\reactiveproperty.wpf.7.12.0.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

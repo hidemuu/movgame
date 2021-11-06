@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "9+p9gH3dyDJlSOzBOVAMm608UtPImo8alQGFm/4GmpZeCI9E3a52nkTUNvlI8JmQlbP4yiw5Vei9rIlXSR0lCw==",
+  "dgSpecHash": "6OtAR+zNDPE2NaWLVPOe/j3F2jv3kZhSwau4UGsfWzAaPQfaB+cz9+ePDTMhsJ1PbHoyFoEmNV8IqV0j8X3hJw==",
   "success": true,
   "projectFilePath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\presentations\\movgame.Wpf.Views\\movgame.Wpf.Views.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\nando\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\mahapps.metro\\2.4.9\\mahapps.metro.2.4.9.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\materialdesigncolors\\2.0.3\\materialdesigncolors.2.0.3.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\materialdesignthemes\\4.2.1\\materialdesignthemes.4.2.1.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\materialdesignthemes.mahapps\\0.1.9\\materialdesignthemes.mahapps.0.1.9.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
   "logs": []
 }
