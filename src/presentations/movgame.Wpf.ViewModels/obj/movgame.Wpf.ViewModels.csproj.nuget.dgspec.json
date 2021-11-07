@@ -397,7 +397,11 @@
         "frameworks": {
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\infrastructures\\movgame.ViewControls.Wpf\\movgame.ViewControls.Wpf.csproj": {
+                "projectPath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\infrastructures\\movgame.ViewControls.Wpf\\movgame.ViewControls.Wpf.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -5,4 +5,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\infrastructures\movgame.ViewControls.Wpf\movgame.ViewControls.Wpf.csproj" />
+  </ItemGroup>
+
 </Project>

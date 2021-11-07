@@ -1,3 +1,4 @@
+using movgame.Models;
 using movgame.Service;
 using movgame.Wpf.Models;
 using Prism.Mvvm;
@@ -17,9 +18,14 @@ namespace movgame.Wpf.ViewModels
 {
     public class MainVindowViewModel : BindableBase
     {
-        protected ObservableCollection<CanvasImage> Items { get; set; }
-        public ReadOnlyReactiveCollection<CanvasImage> Models;
+        public CanvasImage Models { get; } = new CanvasImage();
         public IRegionManager RegionManager { get; }
+
+        public ReactiveCommand LoadedCommand { get; } = new ReactiveCommand();
+        public ReactiveCommand KeyUpCommand { get; } = new ReactiveCommand();
+        public ReactiveCommand KeyDownCommand { get; } = new ReactiveCommand();
+        public ReactiveCommand KeyLeftCommand { get; } = new ReactiveCommand();
+        public ReactiveCommand KeyRightCommand { get; } = new ReactiveCommand();
 
         private readonly IGameService gameService;
         private Bitmap bitmap;
@@ -33,26 +39,54 @@ namespace movgame.Wpf.ViewModels
         {
             this.RegionManager = regionManager;
             this.gameService = gameService;
-            this.bitmap = new Bitmap(400, 400);
+
+            // 画像作成
+            
+            this.bitmap = new Bitmap(600, 600);
             this.graphics = Graphics.FromImage(bitmap);
-            IntPtr hbitmap = bitmap.GetHbitmap();
-            var image = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(hbitmap, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-            Items = new ObservableCollection<CanvasImage>();
-            Items.Add(new CanvasImage() { ImageSource = image });
-            Models = Items.ToReadOnlyReactiveCollection(x => x);
             
             gameService.Run();
+
+            LoadedCommand.Subscribe(() => { });
+            KeyUpCommand.Subscribe(() => KeyUp());
+            KeyDownCommand.Subscribe(() => KeyDown());
+            KeyLeftCommand.Subscribe(() => KeyLeft());
+            KeyRightCommand.Subscribe(() => KeyRight());
 
             // 定期更新スレッド
             var timer = new ReactiveTimer(TimeSpan.FromMilliseconds(0.1), new SynchronizationContextScheduler(SynchronizationContext.Current));
             timer.Subscribe(_ =>
             {
-
+                gameService.Draw(graphics);
+                var hbitmap = bitmap.GetHbitmap();
+                Models.ImageSource.Value = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(hbitmap, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                DeleteObject(hbitmap);
             });
             timer.AddTo(disposables);
             timer.Start();
-
         }
 
+        private void KeyUp()
+        {
+            gameService.SetKeyCode(GameEngine.KEY_CODE_UP);
+        }
+
+        private void KeyDown()
+        {
+            gameService.SetKeyCode(GameEngine.KEY_CODE_DOWN);
+        }
+
+        private void KeyLeft()
+        {
+            gameService.SetKeyCode(GameEngine.KEY_CODE_LEFT);
+        }
+
+        private void KeyRight()
+        {
+            gameService.SetKeyCode(GameEngine.KEY_CODE_RIGHT);
+        }
+
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        public static extern bool DeleteObject(IntPtr hObject); // gdi32.dllのDeleteObjectメソッドの使用を宣言する。
     }
 }

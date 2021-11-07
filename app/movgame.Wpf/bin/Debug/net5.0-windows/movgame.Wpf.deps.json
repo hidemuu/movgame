@@ -260,6 +260,9 @@
         }
       },
       "movgame.Wpf.Models/1.0.0": {
+        "dependencies": {
+          "movgame.ViewControls.Wpf": "1.0.0"
+        },
         "runtime": {
           "movgame.Wpf.Models.dll": {}
         }

@@ -10,3 +10,6 @@ C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\ref\movgame.Wpf.Models.dll
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\movgame.Wpf.Models.pdb
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\movgame.Wpf.Models.csproj.AssemblyReference.cache
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\bin\Debug\net5.0-windows\movgame.ViewControls.Wpf.dll
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\bin\Debug\net5.0-windows\movgame.ViewControls.Wpf.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Models\obj\Debug\net5.0-windows\movgame.Wpf.Models.csproj.CopyComplete
