@@ -24,3 +24,5 @@ C:\Users\nando\Documents\GitHub\movgame\app\movgame\obj\Debug\net5.0\movgame.dll
 C:\Users\nando\Documents\GitHub\movgame\app\movgame\obj\Debug\net5.0\ref\movgame.dll
 C:\Users\nando\Documents\GitHub\movgame\app\movgame\obj\Debug\net5.0\movgame.pdb
 C:\Users\nando\Documents\GitHub\movgame\app\movgame\obj\Debug\net5.0\movgame.genruntimeconfig.cache
+C:\Users\nando\Documents\GitHub\movgame\app\movgame\bin\Debug\net5.0\movgame.Repository.dll
+C:\Users\nando\Documents\GitHub\movgame\app\movgame\bin\Debug\net5.0\movgame.Repository.pdb

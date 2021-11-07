@@ -1,6 +1,7 @@
 ﻿using movgame.Models;
 using movgame.Models.Characters;
 using movgame.Models.Maps;
+using movgame.Repository;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -32,9 +33,14 @@ namespace movgame.Service
         private GameEngine gameEngine;
 
         /// <summary>
+        /// ランドマークリポジトリ
+        /// </summary>
+        private ILandMarkRepository landMarkRepository;
+
+        /// <summary>
         /// ビットマップ画面
         /// </summary>
-        private Bitmap screenBmp;
+        private Bitmap screenBitmap;
 
         #endregion
 
@@ -59,13 +65,15 @@ namespace movgame.Service
 
         #endregion
 
-        public GameServiceBase()
+        public GameServiceBase(ILandMarkRepository landMarkRepository)
         {
+            this.landMarkRepository = landMarkRepository;
+            var maps = landMarkRepository.Get();
             gameEngine = new GameEngine();
-            FrameWidth = GameMap.col * gameEngine.unitWidth;
-            FrameHeight = GameMap.row * gameEngine.unitHeight;
-            screenBmp = new Bitmap(FrameWidth, FrameHeight);
-            ScreenGraphics = Graphics.FromImage(screenBmp);
+            FrameWidth = maps[0].GetCol() * gameEngine.UnitWidth;
+            FrameHeight = maps[0].GetRow() * gameEngine.UnitHeight;
+            screenBitmap = new Bitmap(FrameWidth, FrameHeight);
+            ScreenGraphics = Graphics.FromImage(screenBitmap);
         }
 
         #region メソッド
@@ -75,7 +83,7 @@ namespace movgame.Service
         /// </summary>
         public virtual void Initialize()
         {
-            gameEngine.Initialize();
+            gameEngine.Initialize(landMarkRepository.Get()[0]);
         }
 
 
@@ -95,14 +103,14 @@ namespace movgame.Service
                 while (active)
                 {
                     //キャラクタの移動処理
-                    foreach (var character in gameEngine.characters)
+                    foreach (var character in gameEngine.Characters)
                     {
                         if (character.TypeCode >= CharacterBase.PLAYER) character.Move();
                     }
                     //ビットマップ画面の作成処理
                     IsBuilding = true;
                     ClearScreen();
-                    foreach (var character in gameEngine.characters)
+                    foreach (var character in gameEngine.Characters)
                     {
                         if (character.TypeCode != CharacterBase.ROAD) DrawCharacter(character);
                     }
@@ -130,13 +138,13 @@ namespace movgame.Service
 
         public void SetKeyCode(int keyCode)
         {
-            gameEngine.keyCode = keyCode;
+            gameEngine.KeyCode = keyCode;
         }
 
         public void Draw(Graphics graphics)
         {
             if (IsBuilding) return;
-            graphics.DrawImage(screenBmp, 0, 0);
+            graphics.DrawImage(screenBitmap, 0, 0);
         }
 
         #endregion

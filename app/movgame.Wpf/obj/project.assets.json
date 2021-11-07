@@ -304,11 +304,25 @@
           "bin/placeholder/movgame.Models.dll": {}
         }
       },
-      "movgame.Service/1.0.0": {
+      "movgame.Repository/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "movgame.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/movgame.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/movgame.Repository.dll": {}
+        }
+      },
+      "movgame.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "movgame.Models": "1.0.0",
+          "movgame.Repository": "1.0.0"
         },
         "compile": {
           "bin/placeholder/movgame.Service.dll": {}
@@ -1036,6 +1050,11 @@
       "type": "project",
       "path": "../../src/domains/movgame.Models/movgame.Models.csproj",
       "msbuildProject": "../../src/domains/movgame.Models/movgame.Models.csproj"
+    },
+    "movgame.Repository/1.0.0": {
+      "type": "project",
+      "path": "../../src/applications/movgame.Repository/movgame.Repository.csproj",
+      "msbuildProject": "../../src/applications/movgame.Repository/movgame.Repository.csproj"
     },
     "movgame.Service/1.0.0": {
       "type": "project",

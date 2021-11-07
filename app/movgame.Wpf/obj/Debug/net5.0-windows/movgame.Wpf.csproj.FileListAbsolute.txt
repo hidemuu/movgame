@@ -50,3 +50,5 @@ C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\bin\Debug\net5.0-windows
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\bin\Debug\net5.0-windows\movgame.Wpf.Models.pdb
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\bin\Debug\net5.0-windows\movgame.Wpf.Views.pdb
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\obj\Debug\net5.0-windows\movgame.Wpf.csproj.CopyComplete
+C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\bin\Debug\net5.0-windows\movgame.Repository.dll
+C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\bin\Debug\net5.0-windows\movgame.Repository.pdb

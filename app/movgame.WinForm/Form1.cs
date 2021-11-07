@@ -1,4 +1,7 @@
-﻿using movgame.WinForm.ViewModels;
+﻿using movgame.Repository;
+using movgame.Repository.InMemory;
+using movgame.Repository.Txt;
+using movgame.WinForm.ViewModels;
 using movgame.WinForm.ViewModels.Services;
 using System;
 using System.Collections.Generic;
@@ -15,6 +18,7 @@ namespace movgame.WinForm
     public partial class Form1 : Form
     {
         protected GameService service;
+        protected ILandMarkRepository landMarkRepository;
 
         public Form1()
         {
@@ -23,7 +27,8 @@ namespace movgame.WinForm
 
         protected virtual void Init()
         {
-            service = new GameService(this);
+            landMarkRepository = new InMemoryLandMarkRepository();
+            service = new GameService(this, landMarkRepository);
         }
 
         private void Form1_Load(object sender, EventArgs e)

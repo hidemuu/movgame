@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\domains\movgame.Models\movgame.Models.csproj" />
+    <ProjectReference Include="..\movgame.Repository\movgame.Repository.csproj" />
   </ItemGroup>
 
 </Project>

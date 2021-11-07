@@ -29,7 +29,7 @@ namespace movgame.Models.Characters
         }
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(brush, X + 2, Y + 2, GameEngine.unitWidth - 4, GameEngine.unitHeight - 4);
+            graphics.FillRectangle(brush, X + 2, Y + 2, GameEngine.UnitWidth - 4, GameEngine.UnitHeight - 4);
         }
 
         public override void Move()
@@ -37,10 +37,10 @@ namespace movgame.Models.Characters
             var dx = 0;
             var dy = 0;
 
-            if(GameEngine.keyCode == 0)
+            if(GameEngine.KeyCode == 0)
             {
                 //  キーが離された後の状態
-                if (X % GameEngine.unitWidth != 0 || Y % GameEngine.unitHeight != 0)
+                if (X % GameEngine.UnitWidth != 0 || Y % GameEngine.UnitHeight != 0)
                 {
                     //1マスの中間位置は移動継続
                     dx = lastDx;
@@ -48,14 +48,14 @@ namespace movgame.Models.Characters
                 }
                 else
                 {
-                    GameEngine.keyCode = 0;
+                    GameEngine.KeyCode = 0;
                     return;
                 }
             }
             else
             {
                 //押されているキーに対する処理
-                switch (GameEngine.keyCode)
+                switch (GameEngine.KeyCode)
                 {
                     case GameEngine.KEY_CODE_LEFT: dx = -1; break;
                     case GameEngine.KEY_CODE_RIGHT: dx = 1; break;
@@ -70,7 +70,7 @@ namespace movgame.Models.Characters
             var y1 = Y + dy;
             if (!GameEngine.IsWall(x1, y1) && GameEngine.GetCollision(this, x1, y1) == -1)
             {
-                SetPos(x1, y1);
+                SetPosition(x1, y1);
                 lastDx = dx;
                 lastDy = dy;
             }

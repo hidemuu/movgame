@@ -7,52 +7,10 @@ namespace movgame.Models.Maps
     /// </summary>
     public class GameMap
     {
-        #region 定数
-        /// <summary>
-        /// 道
-        /// </summary>
-        public const string ROAD = "＿";
-        /// <summary>
-        /// 壁
-        /// </summary>
-        public const string WALL = "＃";
-        /// <summary>
-        /// プレイヤー
-        /// </summary>
-        public const string PALYER = "○";
-        /// <summary>
-        /// NPC
-        /// </summary>
-        public const string ALIEN = "＠";
-        #endregion
-
+        
         #region フィールド
-        private static int[,] map;
-        private static string mark =  ROAD + WALL + PALYER + ALIEN;
-        private static string[] mapData =
-        {
-            "＃＃＃＃＃＃＃＃＃＃＃＃",
-            "＃＠＿＿＿＿＃＃＿＿＠＃",
-            "＃＿＃＿＃＿＿＿＿＃＿＃",
-            "＃＿＃＿＃＃＿＃＃＃＿＃",
-            "＃＿＿＿＿＃＿＃＿＿＿＃",
-            "＃＃＿＿＿＿＿＃＿＃＃＃",
-            "＃＿＿＿＃＿＿＿＿＿＿＃",
-            "＃＿＃＿＃＃＃＿＃＃＿＃",
-            "＃＿＃＿＿＿＿＿＿＃＿＃",
-            "＃＿＃＃＿＃＿＃＿＃＿＃",
-            "＃＠＿＿＿＃＿＿＿＿○＃",
-            "＃＃＃＃＃＃＃＃＃＃＃＃",
-        };
+        private static string mark = LandMark.ROAD + LandMark.WALL + LandMark.PALYER + LandMark.ALIEN;
 
-        /// <summary>
-        /// 行サイズ
-        /// </summary>
-        public static int row = mapData.Length;
-        /// <summary>
-        /// 列サイズ
-        /// </summary>
-        public static int col = mapData[0].Length;
         #endregion
 
         #region メソッド
@@ -60,14 +18,16 @@ namespace movgame.Models.Maps
         /// マップ構築
         /// </summary>
         /// <returns></returns>
-        public static int[,] MakeMap()
+        public static int[,] MakeMap(LandMark landMark)
         {
-            map = new int[row, col];
+            var row = landMark.GetRow();
+            var col = landMark.GetCol();
+            var map = new int[row, col];
             for (var i = 0; i < row; i++)
             {
                 for (var j = 0; j < col; j++)
                 {
-                    map[i, j] = mark.IndexOf(mapData[i][j]);
+                    map[i, j] = mark.IndexOf(landMark.MarkRows[i][j]);
                 }
             }
             return map;

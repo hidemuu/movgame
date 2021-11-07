@@ -27,13 +27,14 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Rectangle Width="{Binding Path=Width}" Height="{Binding Path=Height}" Fill="{Binding Path=Color}"/>
+                    <Image Source="{Binding Path=ImageSource}"></Image>
+                    <!--<Rectangle Width="{Binding Path=Width}" Height="{Binding Path=Height}" Fill="{Binding Path=Color}"/>-->
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemContainerStyle>
                 <Style>
-                    <Setter Property="Canvas.Top" Value="{Binding Path=Top}" />
-                    <Setter Property="Canvas.Left" Value="{Binding Path=Left}" />
+                    <!--<Setter Property="Canvas.Top" Value="{Binding Path=Top}" />
+                    <Setter Property="Canvas.Left" Value="{Binding Path=Left}" />-->
                 </Style>
             </ItemsControl.ItemContainerStyle>
         </ItemsControl>

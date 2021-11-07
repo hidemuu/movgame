@@ -7,12 +7,30 @@ using System.Threading.Tasks;
 
 namespace movgame.Wpf.Models
 {
-    public class CanvasModel
+    /// <summary>
+    /// 
+    /// </summary>
+    public class CanvasRectangle
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public int Width { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public int Height { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public int Top { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public int Left { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public Color Color { get; set; }
     }
 }

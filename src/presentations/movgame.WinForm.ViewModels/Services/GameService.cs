@@ -1,4 +1,5 @@
 ﻿using movgame.Models.Characters;
+using movgame.Repository;
 using movgame.Service;
 using System;
 using System.Collections.Generic;
@@ -8,15 +9,18 @@ using System.Windows.Forms;
 
 namespace movgame.WinForm.ViewModels.Services
 {
+    /// <summary>
+    /// ゲームサービス
+    /// </summary>
     public class GameService : GameServiceBase
     {
        
         /// <summary>
         /// フォームインスタンス
         /// </summary>
-        Form form;
+        private Form form;
 
-        public GameService(Form form) : base()
+        public GameService(Form form, ILandMarkRepository landMarkRepository) : base(landMarkRepository)
         {
             this.form = form;
             this.form.ClientSize = new Size(FrameWidth, FrameHeight);

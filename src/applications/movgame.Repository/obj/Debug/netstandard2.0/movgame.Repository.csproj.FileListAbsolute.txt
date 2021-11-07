@@ -7,3 +7,6 @@ C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\
 C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\Debug\netstandard2.0\movgame.Repository.dll
 C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\Debug\netstandard2.0\movgame.Repository.pdb
 C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\Debug\netstandard2.0\movgame.Repository.csproj.AssemblyReference.cache
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\bin\Debug\netstandard2.0\movgame.Models.dll
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\bin\Debug\netstandard2.0\movgame.Models.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Repository\obj\Debug\netstandard2.0\movgame.Repository.csproj.CopyComplete

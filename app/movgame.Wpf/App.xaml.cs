@@ -1,4 +1,6 @@
-﻿using movgame.Service;
+﻿using movgame.Repository;
+using movgame.Repository.InMemory;
+using movgame.Service;
 using movgame.Wpf.ViewModels;
 using movgame.Wpf.ViewModels.Services;
 using movgame.Wpf.Views;
@@ -42,6 +44,7 @@ namespace movgame.Wpf
             var container = containerRegistry.GetContainer();
             //container.RegisterType<IGameService, GameService>();
 
+            containerRegistry.RegisterInstance<ILandMarkRepository>(new InMemoryLandMarkRepository());
             containerRegistry.RegisterInstance<IGameService>(Container.Resolve<GameService>());
         }
 

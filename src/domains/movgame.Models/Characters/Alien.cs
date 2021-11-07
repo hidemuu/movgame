@@ -14,12 +14,16 @@ namespace movgame.Models.Characters
         protected static Random rnd = new Random();
         protected int nextDirection = 0;
         protected int[,] dirOffset = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
-        static Brush brush = new SolidBrush(Color.IndianRed);
-        int[] tryPlan = { 1, 3, 2 };
+        private static Brush brush = new SolidBrush(Color.IndianRed);
+        private int[] tryPlan = { 1, 3, 2 };
         #endregion
 
         public override int TypeCode { get; protected set; } = ALIEN;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="gameEngine"></param>
         public Alien(GameEngine gameEngine) : base(gameEngine)
         {
         }
@@ -27,7 +31,7 @@ namespace movgame.Models.Characters
         #region メソッド
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(brush, X + 2, Y + 2, GameEngine.unitWidth - 4, GameEngine.unitHeight - 4);
+            graphics.FillRectangle(brush, X + 2, Y + 2, GameEngine.UnitWidth - 4, GameEngine.UnitHeight - 4);
         }
         /// <summary>
         /// 移動先を設定
@@ -41,7 +45,7 @@ namespace movgame.Models.Characters
         /// </summary>
         public void NextMoveRandom()
         {
-            nextDirection = rnd.NextDouble() < 0.005 ? (direction + 1 + (int)((rnd.NextDouble() * 2) + 0.5)) % 4 : direction;
+            nextDirection = rnd.NextDouble() < 0.005 ? (Direction + 1 + (int)((rnd.NextDouble() * 2) + 0.5)) % 4 : Direction;
         }
 
         /// <summary>
@@ -59,8 +63,8 @@ namespace movgame.Models.Characters
             }
             if (!GameEngine.IsWall(x1, y1) && GameEngine.GetCollision(this, x1, y1) == -1)
             {
-                direction = nextDirection;
-                SetPos(x1, y1);
+                Direction = nextDirection;
+                SetPosition(x1, y1);
             }
         }
 

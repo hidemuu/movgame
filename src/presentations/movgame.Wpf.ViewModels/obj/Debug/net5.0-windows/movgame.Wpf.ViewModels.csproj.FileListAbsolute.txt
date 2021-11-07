@@ -23,3 +23,5 @@ C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.ViewModels
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.ViewModels\bin\Debug\net5.0-windows\movgame.ViewControls.Wpf.pdb
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.ViewModels\bin\Debug\net5.0-windows\movgame.ViewDesigns.Wpf.pdb
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.ViewModels\bin\Debug\net5.0-windows\movgame.Wpf.Models.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.ViewModels\bin\Debug\net5.0-windows\movgame.Repository.dll
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.ViewModels\bin\Debug\net5.0-windows\movgame.Repository.pdb

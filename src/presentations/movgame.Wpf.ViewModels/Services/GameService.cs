@@ -1,4 +1,5 @@
 ﻿using movgame.Models.Characters;
+using movgame.Repository;
 using movgame.Service;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace movgame.Wpf.ViewModels.Services
     public class GameService : GameServiceBase
     {
 
-        public GameService() : base()
+        public GameService(ILandMarkRepository landMarkRepository) : base(landMarkRepository)
         {
         }
 
@@ -31,7 +32,7 @@ namespace movgame.Wpf.ViewModels.Services
 
         protected override void InvalidateScreen()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

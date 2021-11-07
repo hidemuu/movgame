@@ -17,7 +17,7 @@ namespace movgame.Models.Characters
 
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(brush, X, Y, GameEngine.unitWidth, GameEngine.unitHeight);
+            graphics.FillRectangle(brush, X, Y, GameEngine.UnitWidth, GameEngine.UnitHeight);
         }
 
         public override void Move()

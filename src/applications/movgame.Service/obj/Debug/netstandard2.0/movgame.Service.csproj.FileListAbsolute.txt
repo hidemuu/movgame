@@ -10,3 +10,5 @@ C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Service\obj\Deb
 C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Service\obj\Debug\netstandard2.0\movgame.Service.csproj.CopyComplete
 C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Service\obj\Debug\netstandard2.0\movgame.Service.dll
 C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Service\obj\Debug\netstandard2.0\movgame.Service.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Service\bin\Debug\netstandard2.0\movgame.Repository.dll
+C:\Users\nando\Documents\GitHub\movgame\src\applications\movgame.Service\bin\Debug\netstandard2.0\movgame.Repository.pdb

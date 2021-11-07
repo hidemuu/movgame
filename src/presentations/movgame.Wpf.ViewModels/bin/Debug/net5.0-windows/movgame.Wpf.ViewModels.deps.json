@@ -225,9 +225,18 @@
           "movgame.Models.dll": {}
         }
       },
-      "movgame.Service/1.0.0": {
+      "movgame.Repository/1.0.0": {
         "dependencies": {
           "movgame.Models": "1.0.0"
+        },
+        "runtime": {
+          "movgame.Repository.dll": {}
+        }
+      },
+      "movgame.Service/1.0.0": {
+        "dependencies": {
+          "movgame.Models": "1.0.0",
+          "movgame.Repository": "1.0.0"
         },
         "runtime": {
           "movgame.Service.dll": {}
@@ -430,6 +439,11 @@
       "hashPath": "unity.container.5.11.11.nupkg.sha512"
     },
     "movgame.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "movgame.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

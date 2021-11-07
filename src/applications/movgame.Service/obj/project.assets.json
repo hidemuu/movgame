@@ -47,6 +47,19 @@
         "runtime": {
           "bin/placeholder/movgame.Models.dll": {}
         }
+      },
+      "movgame.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "movgame.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/movgame.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/movgame.Repository.dll": {}
+        }
       }
     }
   },
@@ -240,12 +253,18 @@
       "type": "project",
       "path": "../../domains/movgame.Models/movgame.Models.csproj",
       "msbuildProject": "../../domains/movgame.Models/movgame.Models.csproj"
+    },
+    "movgame.Repository/1.0.0": {
+      "type": "project",
+      "path": "../movgame.Repository/movgame.Repository.csproj",
+      "msbuildProject": "../movgame.Repository/movgame.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.3",
-      "movgame.Models >= 1.0.0"
+      "movgame.Models >= 1.0.0",
+      "movgame.Repository >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -285,6 +304,9 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "projectReferences": {
+            "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\applications\\movgame.Repository\\movgame.Repository.csproj": {
+              "projectPath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\applications\\movgame.Repository\\movgame.Repository.csproj"
+            },
             "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\domains\\movgame.Models\\movgame.Models.csproj": {
               "projectPath": "C:\\Users\\nando\\Documents\\GitHub\\movgame\\src\\domains\\movgame.Models\\movgame.Models.csproj"
             }

@@ -13,6 +13,10 @@ namespace movgame.Models.Characters
         /// <summary>
         /// 道
         /// </summary>
+        public const int BREAD = -1;
+        /// <summary>
+        /// 道
+        /// </summary>
         public const int ROAD = 0;
         /// <summary>
         /// 壁
@@ -50,19 +54,19 @@ namespace movgame.Models.Characters
         /// <summary>
         /// 方向
         /// </summary>
-        protected int direction;
+        protected int Direction { get; set; }
         /// <summary>
         /// 行
         /// </summary>
-        protected int row;
+        protected int Row { get; private set; }
         /// <summary>
         /// 列
         /// </summary>
-        protected int col;
+        protected int Col { get; private set; }
         /// <summary>
         /// ユニット接触フラグ
         /// </summary>
-        protected bool reached = false;
+        protected bool Reached { get; private set; } = false;
 
         #endregion
 
@@ -82,19 +86,19 @@ namespace movgame.Models.Characters
         /// </summary>
         /// <param name="x1"></param>
         /// <param name="y1"></param>
-        public void SetPos(int x1, int y1)
+        public void SetPosition(int x1, int y1)
         {
             X = x1;
             Y = y1;
-            row = Y / GameEngine.unitHeight;
-            col = X / GameEngine.unitWidth;
-            reached = Y % GameEngine.unitHeight == 0 && X % GameEngine.unitWidth == 0;
+            Row = Y / GameEngine.UnitHeight;
+            Col = X / GameEngine.UnitWidth;
+            Reached = Y % GameEngine.UnitHeight == 0 && X % GameEngine.UnitWidth == 0;
         }
         /// <summary>
         /// 描画処理
         /// </summary>
         /// <param name="graphics"></param>
-        public virtual void Draw(Graphics graphics) { }
+        public abstract void Draw(Graphics graphics);
         /// <summary>
         /// 移動処理
         /// </summary>

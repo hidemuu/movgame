@@ -22,35 +22,48 @@ namespace movgame.Models
 
         #region フィールド
         /// <summary>
+        /// パンくずリスト
+        /// </summary>
+        private Breadcrumbs breadcrumbs;
+
+        private static bool isUseBreadcrumbs = true;
+
+        #endregion
+
+        #region プロパティ
+        /// <summary>
         /// ユニット幅
         /// </summary>
-        public int unitWidth = 40;
+        public int UnitWidth { get; private set; } = 40;
         /// <summary>
         /// ユニット高さ
         /// </summary>
-        public int unitHeight = 40;
+        public int UnitHeight { get; private set; } = 40;
         /// <summary>
         /// 入力キーコード
         /// </summary>
-        public int keyCode = 0;
+        public int KeyCode { get; set; } = 0;
         /// <summary>
         /// キャラクタ配列
         /// </summary>
-        public List<CharacterBase> characters;
+        public List<CharacterBase> Characters { get; private set; }
         /// <summary>
         /// 敵キャラ配列
         /// </summary>
-        public List<Alien> aliens;
+        public List<Alien> Aliens { get; private set; }
         /// <summary>
         /// マップ情報
         /// </summary>
-        public int[,] map;
+        public int[,] Map { get; private set; }
         #endregion
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public GameEngine()
         {
-            characters = new List<CharacterBase>();
-            aliens = new List<Alien>();
+            Characters = new List<CharacterBase>();
+            Aliens = new List<Alien>();
         }
 
         #region メソッド
@@ -58,11 +71,13 @@ namespace movgame.Models
         /// <summary>
         /// 初期化処理
         /// </summary>
-        public virtual void Initialize()
+        public virtual void Initialize(LandMark landMark)
         {
-            map = GameMap.MakeMap();
-            AddCharacters(characters, map);
-            SortCharacters(new int[] { CharacterBase.WALL, CharacterBase.ALIEN, CharacterBase.PLAYER });
+            Map = GameMap.MakeMap(landMark);
+            breadcrumbs = new Breadcrumbs(15, this, landMark.GetRow(), landMark.GetCol());
+            AddCharacters(Characters, Map);
+            AddCharacters(Characters, breadcrumbs.breads);
+            SortCharacters(new int[] { CharacterBase.WALL, CharacterBase.BREAD, CharacterBase.ALIEN, CharacterBase.PLAYER });
         }
 
         /// <summary>
@@ -77,7 +92,7 @@ namespace movgame.Models
             {
                 dic.Add(t, val++);
             }
-            characters.Sort(delegate (CharacterBase x, CharacterBase y)
+            Characters.Sort(delegate (CharacterBase x, CharacterBase y)
             {
                 var dif = dic[x.TypeCode] - dic[y.TypeCode];
                 if (dif > 0) return 1;
@@ -103,11 +118,11 @@ namespace movgame.Models
                     if (type != CharacterBase.ROAD)
                     {
                         var character = MakeCharacter(type);
-                        character.SetPos(c * unitWidth, r * unitHeight);
+                        character.SetPosition(c * UnitWidth, r * UnitHeight);
                         characters.Add(character);
                         if (type == CharacterBase.ALIEN)
                         {
-                            aliens.Add((Alien)character);
+                            Aliens.Add((Alien)character);
                         }
                     }
                 }
@@ -144,8 +159,12 @@ namespace movgame.Models
             switch (type)
             {
                 case CharacterBase.WALL: return new Wall(this);
-                case CharacterBase.PLAYER: return new Player(this);
-                case CharacterBase.ALIEN: return new Alien(this);
+                case CharacterBase.PLAYER:
+                    if (isUseBreadcrumbs) return new BreadPlayer(this, breadcrumbs);
+                    else return new Player(this);
+                case CharacterBase.ALIEN:
+                    if (isUseBreadcrumbs) return new BreadAlien(this, breadcrumbs);
+                    else return new Alien(this);
                 default: return null;
             }
         }
@@ -157,14 +176,14 @@ namespace movgame.Models
         /// <returns></returns>
         public bool IsWall(int x, int y)
         {
-            var row1 = y / unitHeight;
-            var col1 = x / unitWidth;
-            var row2 = (y + unitHeight - 1) / unitHeight;
-            var col2 = (x + unitWidth - 1) / unitWidth;
-            return map[row1, col1] == CharacterBase.WALL ||
-                   map[row1, col2] == CharacterBase.WALL ||
-                   map[row2, col1] == CharacterBase.WALL ||
-                   map[row2, col2] == CharacterBase.WALL;
+            var row1 = y / UnitHeight;
+            var col1 = x / UnitWidth;
+            var row2 = (y + UnitHeight - 1) / UnitHeight;
+            var col2 = (x + UnitWidth - 1) / UnitWidth;
+            return Map[row1, col1] == CharacterBase.WALL ||
+                   Map[row1, col2] == CharacterBase.WALL ||
+                   Map[row2, col1] == CharacterBase.WALL ||
+                   Map[row2, col2] == CharacterBase.WALL;
         }
         /// <summary>
         /// 衝突検出
@@ -175,11 +194,11 @@ namespace movgame.Models
         /// <returns></returns>
         public int GetCollision(CharacterBase target, int x, int y)
         {
-            foreach (var character in characters)
+            foreach (var character in Characters)
             {
                 if (character.TypeCode > CharacterBase.WALL && character != target)
                 {
-                    if (Math.Abs(character.X - x) < unitWidth && Math.Abs(character.Y - y) < unitHeight)
+                    if (Math.Abs(character.X - x) < UnitWidth && Math.Abs(character.Y - y) < UnitHeight)
                     {
                         return character.TypeCode;
                     }

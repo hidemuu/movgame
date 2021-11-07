@@ -28,6 +28,6 @@ namespace movgame.Service
         /// 描画
         /// </summary>
         /// <param name="g"></param>
-        void Draw(Graphics g);
+        void Draw(Graphics graphics);
     }
 }
