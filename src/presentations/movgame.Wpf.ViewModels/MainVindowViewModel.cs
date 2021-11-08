@@ -54,7 +54,7 @@ namespace movgame.Wpf.ViewModels
             KeyRightCommand.Subscribe(() => KeyRight());
 
             // 定期更新スレッド
-            var timer = new ReactiveTimer(TimeSpan.FromMilliseconds(0.1), new SynchronizationContextScheduler(SynchronizationContext.Current));
+            var timer = new ReactiveTimer(TimeSpan.FromMilliseconds(10), new SynchronizationContextScheduler(SynchronizationContext.Current));
             timer.Subscribe(_ =>
             {
                 gameService.Draw(graphics);
