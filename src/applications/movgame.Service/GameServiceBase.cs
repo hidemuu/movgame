@@ -65,6 +65,10 @@ namespace movgame.Service
 
         #endregion
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="landMarkRepository"></param>
         public GameServiceBase(ILandMarkRepository landMarkRepository)
         {
             this.landMarkRepository = landMarkRepository;

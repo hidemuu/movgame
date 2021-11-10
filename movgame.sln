@@ -35,11 +35,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.Repository", "src\a
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.Utilities", "src\infrastructures\movgame.Utilities\movgame.Utilities.csproj", "{516EBA85-3FBA-4DC9-979A-ABEBFE4BDCA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.ViewControls.Wpf", "src\infrastructures\movgame.ViewControls.Wpf\movgame.ViewControls.Wpf.csproj", "{80218507-4FDA-4A48-B709-06386E5BB1C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.ViewControls.Wpf", "src\infrastructures\movgame.ViewControls.Wpf\movgame.ViewControls.Wpf.csproj", "{80218507-4FDA-4A48-B709-06386E5BB1C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.ViewDesigns.Wpf", "src\infrastructures\movgame.ViewDesigns.Wpf\movgame.ViewDesigns.Wpf.csproj", "{4338E5A3-F07E-41D9-A71C-3B1C624B6E71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.ViewDesigns.Wpf", "src\infrastructures\movgame.ViewDesigns.Wpf\movgame.ViewDesigns.Wpf.csproj", "{4338E5A3-F07E-41D9-A71C-3B1C624B6E71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.Wpf.Models", "src\presentations\movgame.Wpf.Models\movgame.Wpf.Models.csproj", "{97BEBFD6-A974-40DA-AB06-17A5EAD81909}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.Wpf.Models", "src\presentations\movgame.Wpf.Models\movgame.Wpf.Models.csproj", "{97BEBFD6-A974-40DA-AB06-17A5EAD81909}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movgame.Web", "app\movgame.Web\movgame.Web.csproj", "{7F10E874-D42F-4BCC-AC9E-5D96140BF085}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{97BEBFD6-A974-40DA-AB06-17A5EAD81909}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97BEBFD6-A974-40DA-AB06-17A5EAD81909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97BEBFD6-A974-40DA-AB06-17A5EAD81909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F10E874-D42F-4BCC-AC9E-5D96140BF085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F10E874-D42F-4BCC-AC9E-5D96140BF085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F10E874-D42F-4BCC-AC9E-5D96140BF085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F10E874-D42F-4BCC-AC9E-5D96140BF085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -121,6 +127,7 @@ Global
 		{80218507-4FDA-4A48-B709-06386E5BB1C4} = {D73D0431-E59C-443C-AEAA-6CC39D1A0854}
 		{4338E5A3-F07E-41D9-A71C-3B1C624B6E71} = {D73D0431-E59C-443C-AEAA-6CC39D1A0854}
 		{97BEBFD6-A974-40DA-AB06-17A5EAD81909} = {EE0F929C-108C-4574-B5AC-1AF15B41F896}
+		{7F10E874-D42F-4BCC-AC9E-5D96140BF085} = {129A551F-3572-4965-ADED-4CAD9AFE3730}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {716AAF40-DCF3-4971-B2B1-4063C61372DD}
