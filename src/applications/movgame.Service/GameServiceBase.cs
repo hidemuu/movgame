@@ -25,18 +25,15 @@ namespace movgame.Service
         /// <summary>
         /// スレッド継続フラグ
         /// </summary>
-        private bool active = true;
-        
+        private bool isActive = true;
         /// <summary>
         /// ゲームエンジン
         /// </summary>
         private GameEngine gameEngine;
-
         /// <summary>
         /// ランドマークリポジトリ
         /// </summary>
         private ILandMarkRepository landMarkRepository;
-
         /// <summary>
         /// ビットマップ画面
         /// </summary>
@@ -62,6 +59,18 @@ namespace movgame.Service
         /// グラフィック
         /// </summary>
         protected Graphics ScreenGraphics { get; private set; }
+        /// <summary>
+        /// ゲームオーバー判定
+        /// </summary>
+        public bool IsGameOver { get; private set; } = false;
+        /// <summary>
+        /// ステージクリア判定
+        /// </summary>
+        public bool IsStageClear { get; private set; } = false;
+        /// <summary>
+        /// スコア
+        /// </summary>
+        public int Score { get; private set; } = 0;
 
         #endregion
 
@@ -104,12 +113,33 @@ namespace movgame.Service
             {
                 var sw = Stopwatch.StartNew();
                 sw.Start();
-                while (active)
+                while (isActive)
                 {
                     //キャラクタの移動処理
                     foreach (var character in gameEngine.Characters)
                     {
-                        if (character.TypeCode >= CharacterBase.PLAYER) character.Move();
+                        switch (character.TypeCode)
+                        {
+                            case CharacterBase.PLAYER:
+                                if(character.Move()) Score++;
+                                break;
+                            case CharacterBase.ALIEN:
+                                character.Move(); break;
+                        }
+                    }
+                    //ゲームオーバー判定
+                    foreach (var character in gameEngine.Characters)
+                    {
+                        switch (character.TypeCode)
+                        {
+                            case CharacterBase.PLAYER:
+                                if (character.IsDamage()) 
+                                {
+                                    character.AddLife(-1);
+                                }
+                                if (character.Life <= 0) IsGameOver = true;
+                                break;
+                        }
                     }
                     //ビットマップ画面の作成処理
                     IsBuilding = true;
@@ -135,29 +165,63 @@ namespace movgame.Service
         public void End()
         {
             //スレッド終了指令
-            active = false;
+            isActive = false;
             //スレッド終了待機
             task.Wait();
         }
 
+        /// <summary>
+        /// キーコード設定
+        /// </summary>
+        /// <param name="keyCode"></param>
         public void SetKeyCode(int keyCode)
         {
             gameEngine.KeyCode = keyCode;
         }
 
+        /// <summary>
+        /// 描画処理
+        /// </summary>
+        /// <param name="graphics"></param>
         public void Draw(Graphics graphics)
         {
             if (IsBuilding) return;
             graphics.DrawImage(screenBitmap, 0, 0);
         }
 
+        public int GetLife()
+        {
+            foreach (var character in gameEngine.Characters)
+            {
+                switch (character.TypeCode)
+                {
+                    case CharacterBase.PLAYER:
+                        return character.Life;
+                }
+            }
+            return -1;
+        }
+
         #endregion
 
         #region 抽象メソッド - テンプレート
 
+        /// <summary>
+        /// スクリーン初期化
+        /// </summary>
         protected abstract void ClearScreen();
+        /// <summary>
+        /// キャラクター描画
+        /// </summary>
+        /// <param name="character"></param>
         protected abstract void DrawCharacter(CharacterBase character);
+        /// <summary>
+        /// スクリーン更新
+        /// </summary>
         protected abstract void InvalidateScreen();
+        /// <summary>
+        /// スクリーン廃棄
+        /// </summary>
         protected abstract void DisposeScreen();
 
         #endregion

@@ -1,8 +1,10 @@
 using movgame.Models;
 using movgame.Service;
 using movgame.Wpf.Models;
+using movgame.Wpf.Views;
 using Prism.Mvvm;
 using Prism.Regions;
+using Prism.Services.Dialogs;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using System;
@@ -16,51 +18,46 @@ using System.Windows.Media.Imaging;
 
 namespace movgame.Wpf.ViewModels
 {
-    public class MainVindowViewModel : BindableBase
+    public class MainVindowViewModel : BindableBase, INavigationAware, IRegionMemberLifetime
     {
-        public CanvasImage Models { get; } = new CanvasImage();
+        public MainWindowModel Models { get; } = new MainWindowModel();
         public IRegionManager RegionManager { get; }
+        private IRegionNavigationJournal journal;
+        private readonly IDialogService dialogService;
+        private readonly IGameService gameService;
 
         public ReactiveCommand LoadedCommand { get; } = new ReactiveCommand();
         public ReactiveCommand KeyUpCommand { get; } = new ReactiveCommand();
-        public ReactiveCommand KeyDownCommand { get; } = new ReactiveCommand();
-        public ReactiveCommand KeyLeftCommand { get; } = new ReactiveCommand();
-        public ReactiveCommand KeyRightCommand { get; } = new ReactiveCommand();
+        public ReactiveCommand KeyGestureUpCommand { get; } = new ReactiveCommand();
+        public ReactiveCommand KeyGestureDownCommand { get; } = new ReactiveCommand();
+        public ReactiveCommand KeyGestureLeftCommand { get; } = new ReactiveCommand();
+        public ReactiveCommand KeyGestureRightCommand { get; } = new ReactiveCommand();
 
-        private readonly IGameService gameService;
-        private Bitmap bitmap;
-        private Graphics graphics;
         private CompositeDisposable disposables = new CompositeDisposable();
+
+        public bool KeepAlive => true;
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public MainVindowViewModel(IRegionManager regionManager, IGameService gameService) 
+        public MainVindowViewModel(IRegionManager regionManager, IDialogService dialogService, IGameService gameService) 
         {
             this.RegionManager = regionManager;
+            this.dialogService = dialogService;
             this.gameService = gameService;
 
-            // 画像作成
-            
-            this.bitmap = new Bitmap(600, 600);
-            this.graphics = Graphics.FromImage(bitmap);
-            
-            gameService.Run();
-
-            LoadedCommand.Subscribe(() => { });
+            LoadedCommand.Subscribe(() => { this.RegionManager.RequestNavigate("MainRegion", nameof(TitleView)); });
             KeyUpCommand.Subscribe(() => KeyUp());
-            KeyDownCommand.Subscribe(() => KeyDown());
-            KeyLeftCommand.Subscribe(() => KeyLeft());
-            KeyRightCommand.Subscribe(() => KeyRight());
+            KeyGestureUpCommand.Subscribe(() => KeyGestureUp());
+            KeyGestureDownCommand.Subscribe(() => KeyGestureDown());
+            KeyGestureLeftCommand.Subscribe(() => KeyGestureLeft());
+            KeyGestureRightCommand.Subscribe(() => KeyGestureRight());
 
             // 定期更新スレッド
             var timer = new ReactiveTimer(TimeSpan.FromMilliseconds(10), new SynchronizationContextScheduler(SynchronizationContext.Current));
             timer.Subscribe(_ =>
             {
-                gameService.Draw(graphics);
-                var hbitmap = bitmap.GetHbitmap();
-                Models.ImageSource.Value = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(hbitmap, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-                DeleteObject(hbitmap);
+                
             });
             timer.AddTo(disposables);
             timer.Start();
@@ -68,25 +65,45 @@ namespace movgame.Wpf.ViewModels
 
         private void KeyUp()
         {
+            gameService.SetKeyCode(GameEngine.KEY_CODE_NONE);
+        }
+
+        private void KeyGestureUp()
+        {
             gameService.SetKeyCode(GameEngine.KEY_CODE_UP);
         }
 
-        private void KeyDown()
+        private void KeyGestureDown()
         {
             gameService.SetKeyCode(GameEngine.KEY_CODE_DOWN);
         }
 
-        private void KeyLeft()
+        private void KeyGestureLeft()
         {
             gameService.SetKeyCode(GameEngine.KEY_CODE_LEFT);
         }
 
-        private void KeyRight()
+        private void KeyGestureRight()
         {
             gameService.SetKeyCode(GameEngine.KEY_CODE_RIGHT);
         }
 
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        public static extern bool DeleteObject(IntPtr hObject); // gdi32.dllのDeleteObjectメソッドの使用を宣言する。
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            //MessageBox.Show("退出完了");
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            journal = navigationContext.NavigationService.Journal;
+
+        }
+
+
     }
 }

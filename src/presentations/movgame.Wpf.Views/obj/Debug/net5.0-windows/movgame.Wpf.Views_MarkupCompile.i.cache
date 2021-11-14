@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 
-11407045341
+6-277788500
 
-4814088833
+9-1260700966
 2082104903877
-MainWindow.xaml;
+ConfigView.xaml;Dialogs\GameOverDialog.xaml;Dialogs\StageClearDialog.xaml;GameView.xaml;MainWindow.xaml;TitleView.xaml;
 
-False
+True
 

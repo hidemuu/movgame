@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace movgame.ViewDesigns.Wpf
+namespace movgame.Wpf.Views
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// ConfigView.xaml の相互作用ロジック
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class ConfigView : UserControl
     {
-        public UserControl1()
+        public ConfigView()
         {
             InitializeComponent();
         }

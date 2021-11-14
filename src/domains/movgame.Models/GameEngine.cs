@@ -12,20 +12,38 @@ namespace movgame.Models
     public class GameEngine
     {
         #region 定数
-
+        /// <summary>
+        /// キー指定無
+        /// </summary>
+        public const int KEY_CODE_NONE = 0;
+        /// <summary>
+        /// 左キー
+        /// </summary>
         public const int KEY_CODE_LEFT = 37;
+        /// <summary>
+        /// 右キー
+        /// </summary>
         public const int KEY_CODE_RIGHT = 39;
+        /// <summary>
+        /// 上キー
+        /// </summary>
         public const int KEY_CODE_UP = 38;
+        /// <summary>
+        /// 下キー
+        /// </summary>
         public const int KEY_CODE_DOWN = 40;
 
         #endregion
 
         #region フィールド
+        
         /// <summary>
-        /// パンくずリスト
+        /// 追跡パンくず
         /// </summary>
         private Breadcrumbs breadcrumbs;
-
+        /// <summary>
+        /// パンくず追跡使用
+        /// </summary>
         private static bool isUseBreadcrumbs = true;
 
         #endregion
@@ -185,26 +203,32 @@ namespace movgame.Models
                    Map[row2, col1] == CharacterBase.WALL ||
                    Map[row2, col2] == CharacterBase.WALL;
         }
+
         /// <summary>
         /// 衝突検出
         /// </summary>
-        /// <param name="target"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="targetCharacter">衝突判定キャラ</param>
+        /// <param name="x">X位置</param>
+        /// <param name="y">Y位置</param>
         /// <returns></returns>
-        public int GetCollision(CharacterBase target, int x, int y)
+        public int GetCollision(CharacterBase targetCharacter, int x, int y)
         {
             foreach (var character in Characters)
             {
-                if (character.TypeCode > CharacterBase.WALL && character != target)
+                switch (character.TypeCode)
                 {
-                    if (Math.Abs(character.X - x) < UnitWidth && Math.Abs(character.Y - y) < UnitHeight)
-                    {
-                        return character.TypeCode;
-                    }
+                    case CharacterBase.ALIEN: case CharacterBase.PLAYER:
+                        if(character != targetCharacter)
+                        {
+                            if (Math.Abs(character.X - x) < UnitWidth && Math.Abs(character.Y - y) < UnitHeight)
+                            {
+                                return character.TypeCode;
+                            }
+                        }
+                        break;
                 }
             }
-            return -1;
+            return CharacterBase.NONE;
         }
 
         #endregion

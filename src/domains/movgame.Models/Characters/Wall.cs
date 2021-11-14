@@ -7,9 +7,15 @@ namespace movgame.Models.Characters
 {
     public class Wall : CharacterBase
     {
-        static Brush brush = new SolidBrush(Color.DarkGray);
+        #region プロパティ
+
+        protected override Brush BodyBrush { get; set; } = new SolidBrush(Color.DarkGray);
 
         public override int TypeCode { get; protected set; } = WALL;
+        public override int Speed { get; protected set; } = 0;
+        public override int Life { get; protected set; } = 1;
+
+        #endregion
 
         public Wall(GameEngine gameEngine) : base(gameEngine)
         {
@@ -17,13 +23,16 @@ namespace movgame.Models.Characters
 
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(brush, X, Y, GameEngine.UnitWidth, GameEngine.UnitHeight);
+            graphics.FillRectangle(BodyBrush, X, Y, GameEngine.UnitWidth, GameEngine.UnitHeight);
         }
 
-        public override void Move()
+        public override bool Move()
         {
-            
+            return false;
         }
-
+        public override bool IsDamage()
+        {
+            return false;
+        }
     }
 }

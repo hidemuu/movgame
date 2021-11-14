@@ -2,8 +2,10 @@
 using movgame.Repository.InMemory;
 using movgame.Service;
 using movgame.Wpf.ViewModels;
+using movgame.Wpf.ViewModels.Dialogs;
 using movgame.Wpf.ViewModels.Services;
 using movgame.Wpf.Views;
+using movgame.Wpf.Views.Dialogs;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Mvvm;
@@ -42,10 +44,21 @@ namespace movgame.Wpf
         {
             //DIコンテナ GetContainerでUnityのコンテナに直接アクセス可能
             var container = containerRegistry.GetContainer();
-            //container.RegisterType<IGameService, GameService>();
 
+            //リポジトリの登録
             containerRegistry.RegisterInstance<ILandMarkRepository>(new InMemoryLandMarkRepository());
+            
+            //サービスの登録
             containerRegistry.RegisterInstance<IGameService>(Container.Resolve<GameService>());
+
+            //Viewの登録
+            containerRegistry.RegisterForNavigation<TitleView>();
+            containerRegistry.RegisterForNavigation<GameView>();
+            containerRegistry.RegisterForNavigation<ConfigView>();
+
+            //Dialogの登録
+            containerRegistry.RegisterDialog<GameOverDialog, GameOverDialogViewModel>();
+            containerRegistry.RegisterDialog<StageClearDialog, StageClearDialogViewModel>();
         }
 
         protected override void ConfigureRegionAdapterMappings(RegionAdapterMappings regionAdapterMappings)
@@ -61,7 +74,9 @@ namespace movgame.Wpf
             base.ConfigureViewModelLocator();
 
             ViewModelLocationProvider.Register<MainWindow, MainVindowViewModel>();
-
+            ViewModelLocationProvider.Register<TitleView, TitleViewModel>();
+            ViewModelLocationProvider.Register<GameView, GameViewModel>();
+            ViewModelLocationProvider.Register<ConfigView, ConfigViewModel>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

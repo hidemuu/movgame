@@ -12,13 +12,28 @@ namespace movgame.Models.Characters
     {
         #region フィールド
 
-        static Brush brush = new SolidBrush(Color.CornflowerBlue);
-        int lastDx = -1;
-        int lastDy = -1;
+        /// <summary>
+        /// 前回移動量X
+        /// </summary>
+        private int lastDx = -1;
+        /// <summary>
+        /// 前回移動量Y
+        /// </summary>
+        private int lastDy = -1;
 
+        private bool isCollision = false;
+        
         #endregion
 
+        #region プロパティ
+
         public override int TypeCode { get; protected set; } = PLAYER;
+        public override int Speed { get; protected set; } = 1;
+        public override int Life { get; protected set; } = 1;
+        protected override Brush BodyBrush { get; set; } = new SolidBrush(Color.CornflowerBlue);
+
+
+        #endregion
 
         /// <summary>
         /// コンストラクタ
@@ -27,17 +42,21 @@ namespace movgame.Models.Characters
         public Player(GameEngine gameEngine) : base(gameEngine)
         {
         }
+
+        #region メソッド
+
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(brush, X + 2, Y + 2, GameEngine.UnitWidth - 4, GameEngine.UnitHeight - 4);
+            graphics.FillRectangle(BodyBrush, X + 2, Y + 2, GameEngine.UnitWidth - 4, GameEngine.UnitHeight - 4);
         }
 
-        public override void Move()
+        public override bool Move()
         {
+            //移動量
             var dx = 0;
             var dy = 0;
 
-            if(GameEngine.KeyCode == 0)
+            if(GameEngine.KeyCode == GameEngine.KEY_CODE_NONE)
             {
                 //  キーが離された後の状態
                 if (X % GameEngine.UnitWidth != 0 || Y % GameEngine.UnitHeight != 0)
@@ -48,8 +67,8 @@ namespace movgame.Models.Characters
                 }
                 else
                 {
-                    GameEngine.KeyCode = 0;
-                    return;
+                    GameEngine.KeyCode = GameEngine.KEY_CODE_NONE;
+                    return false;
                 }
             }
             else
@@ -61,20 +80,35 @@ namespace movgame.Models.Characters
                     case GameEngine.KEY_CODE_RIGHT: dx = 1; break;
                     case GameEngine.KEY_CODE_UP: dy = -1; break;
                     case GameEngine.KEY_CODE_DOWN: dy = 1; break;
-                    default: return;
+                    default: return false;
                 }
             }
 
             //壁でなく他のキャラに衝突しなければ進む
-            var x1 = X + dx;
-            var y1 = Y + dy;
-            if (!GameEngine.IsWall(x1, y1) && GameEngine.GetCollision(this, x1, y1) == -1)
+            var x = X + (dx * Speed);
+            var y = Y + (dy * Speed);
+            if (!GameEngine.IsWall(x, y) && GameEngine.GetCollision(this, x, y) == CharacterBase.NONE)
             {
-                SetPosition(x1, y1);
+                SetPosition(x, y);
                 lastDx = dx;
                 lastDy = dy;
+                return true;
             }
-
+            if (GameEngine.GetCollision(this, x, y) == CharacterBase.ALIEN) isCollision = true;
+            return false;
         }
+
+        /// <summary>
+        /// ダメージ判定
+        /// </summary>
+        /// <returns></returns>
+        public override bool IsDamage()
+        {
+            if (isCollision) return true;
+            return false;
+        }
+
+        #endregion
+
     }
 }

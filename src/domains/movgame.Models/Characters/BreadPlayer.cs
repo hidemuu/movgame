@@ -21,10 +21,11 @@ namespace movgame.Models.Characters
             this.breadcrumbs = breadcrumbs;
         }
 
-        public override void Move()
+        public override bool Move()
         {
-            base.Move();
+            var result = base.Move();
             if (Reached) breadcrumbs.Drop(Row, Col);
+            return result;
         }
 
     }

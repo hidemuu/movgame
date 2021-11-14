@@ -8,8 +8,11 @@ using System.Windows.Media.Imaging;
 
 namespace movgame.Wpf.Models
 {
-    public class CanvasImage
+    public class GameModel
     {
+        public ReactivePropertySlim<int> Life { get; set; } = new ReactivePropertySlim<int>();
+        public ReactivePropertySlim<int> Stage { get; set; } = new ReactivePropertySlim<int>();
+        public ReactivePropertySlim<int> Score { get; set; } = new ReactivePropertySlim<int>();
         public ReactivePropertySlim<BitmapSource> ImageSource { get; set; } = new ReactivePropertySlim<BitmapSource>();
     }
 }

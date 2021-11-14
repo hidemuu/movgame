@@ -14,11 +14,18 @@ namespace movgame.Models.Characters
         protected static Random rnd = new Random();
         protected int nextDirection = 0;
         protected int[,] dirOffset = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
-        private static Brush brush = new SolidBrush(Color.IndianRed);
+        
         private int[] tryPlan = { 1, 3, 2 };
         #endregion
 
+        #region プロパティ
+
         public override int TypeCode { get; protected set; } = ALIEN;
+        public override int Speed { get; protected set; } = 1;
+        public override int Life { get; protected set; } = 1;
+        protected override Brush BodyBrush { get; set; } = new SolidBrush(Color.IndianRed);
+
+        #endregion
 
         /// <summary>
         /// コンストラクタ
@@ -31,7 +38,7 @@ namespace movgame.Models.Characters
         #region メソッド
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(brush, X + 2, Y + 2, GameEngine.UnitWidth - 4, GameEngine.UnitHeight - 4);
+            graphics.FillRectangle(BodyBrush, X + 2, Y + 2, GameEngine.UnitWidth - 4, GameEngine.UnitHeight - 4);
         }
         /// <summary>
         /// 移動先を設定
@@ -55,13 +62,13 @@ namespace movgame.Models.Characters
         {
             var x1 = X + dirOffset[nextDirection, 0];
             var y1 = Y + dirOffset[nextDirection, 1];
-            if (GameEngine.IsWall(x1, y1) || GameEngine.GetCollision(this, x1, y1) != -1)
+            if (GameEngine.IsWall(x1, y1) || GameEngine.GetCollision(this, x1, y1) != CharacterBase.NONE)
             {
                 nextDirection = (nextDirection + tryPlan[(int)(rnd.NextDouble() * 2.1)]) % 4;
                 x1 = X + dirOffset[nextDirection, 0];
                 y1 = Y + dirOffset[nextDirection, 1];
             }
-            if (!GameEngine.IsWall(x1, y1) && GameEngine.GetCollision(this, x1, y1) == -1)
+            if (!GameEngine.IsWall(x1, y1) && GameEngine.GetCollision(this, x1, y1) == CharacterBase.NONE)
             {
                 Direction = nextDirection;
                 SetPosition(x1, y1);
@@ -69,10 +76,16 @@ namespace movgame.Models.Characters
         }
 
 
-        public override void Move()
+        public override bool Move()
         {
             NextMove();
             MoveExec();
+            return false;
+        }
+
+        public override bool IsDamage()
+        {
+            return false;
         }
         #endregion
 

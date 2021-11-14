@@ -7,6 +7,11 @@ namespace movgame.Service
 {
     public interface IGameService
     {
+        bool IsGameOver { get; }
+
+        bool IsStageClear { get; }
+        
+        int Score { get; }
         /// <summary>
         /// 初期化処理
         /// </summary>
@@ -29,5 +34,7 @@ namespace movgame.Service
         /// </summary>
         /// <param name="g"></param>
         void Draw(Graphics graphics);
+
+        int GetLife();
     }
 }

@@ -52,3 +52,6 @@ C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\obj\Debug\net5.0-windows
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\obj\Debug\net5.0-windows\ref\movgame.Wpf.dll
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\obj\Debug\net5.0-windows\movgame.Wpf.pdb
 C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\obj\Debug\net5.0-windows\movgame.Wpf.genruntimeconfig.cache
+C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\obj\Debug\net5.0-windows\movgame.Wpf_MarkupCompile.lref
+C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\obj\Debug\net5.0-windows\App.baml
+C:\Users\nando\Documents\GitHub\movgame\app\movgame.Wpf\obj\Debug\net5.0-windows\movgame.Wpf.g.resources

@@ -22,3 +22,13 @@ C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\movgame.Wpf.Views.dll
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\ref\movgame.Wpf.Views.dll
 C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\movgame.Wpf.Views.pdb
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\ConfigView.g.cs
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\Dialogs\GameOverDialog.g.cs
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\Dialogs\StageClearDialog.g.cs
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\GameView.g.cs
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\TitleView.g.cs
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\ConfigView.baml
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\Dialogs\GameOverDialog.baml
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\Dialogs\StageClearDialog.baml
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\GameView.baml
+C:\Users\nando\Documents\GitHub\movgame\src\presentations\movgame.Wpf.Views\obj\Debug\net5.0-windows\TitleView.baml

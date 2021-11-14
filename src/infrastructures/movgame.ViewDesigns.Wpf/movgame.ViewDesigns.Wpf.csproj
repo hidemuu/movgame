@@ -13,4 +13,10 @@
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Converters\" />
+    <Folder Include="Attributes\" />
+    <Folder Include="Styles\" />
+  </ItemGroup>
+
 </Project>
