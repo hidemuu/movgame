@@ -34,6 +34,7 @@ namespace movgame.Wpf.ViewModels
         private Bitmap bitmap;
         private Graphics graphics;
         private CompositeDisposable disposables = new CompositeDisposable();
+        private bool isLoaded = false;
 
         public GameViewModel(IRegionManager regionManager, IDialogService dialogService, IGameService gameService)
         {
@@ -41,7 +42,6 @@ namespace movgame.Wpf.ViewModels
             this.dialogService = dialogService;
             this.gameService = gameService;
 
-            // 画像作成
             this.bitmap = new Bitmap(600, 600);
             this.graphics = Graphics.FromImage(bitmap);
 
@@ -50,33 +50,37 @@ namespace movgame.Wpf.ViewModels
             // 定期更新スレッド
             Timer.Subscribe(_ => OnTimer());
             Timer.AddTo(disposables);
+            Timer.Start();
         }
 
         private void OnLoadedCommand()
         {
+            isLoaded = true;
             gameService.Run();
-            Timer.Start();
         }
 
         private void OnTimer()
         {
-            gameService.Draw(graphics);
-            var hbitmap = bitmap.GetHbitmap();
-            Models.ImageSource.Value = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(hbitmap, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-            Models.Life.Value = gameService.GetLife();
-            DeleteObject(hbitmap);
-            Models.Score.Value = gameService.Score;
-            if (gameService.IsGameOver)
+            if (isLoaded)
             {
-                dialogService.ShowDialog("GameOverDialog", new DialogParameters($"message={"ゲームオーバー!"}"), result =>
+                gameService.Draw(graphics);
+                var hbitmap = bitmap.GetHbitmap();
+                Models.ImageSource.Value = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(hbitmap, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                Models.Life.Value = gameService.GetLife();
+                DeleteObject(hbitmap);
+                Models.Score.Value = gameService.Score;
+                if (gameService.IsGameOver)
                 {
-                    if (result.Result == ButtonResult.Yes)
+                    dialogService.ShowDialog("GameOverDialog", new DialogParameters($"message={"ゲームオーバー!"}"), result =>
                     {
-                        regionManager.RequestNavigate("MainRegion", nameof(TitleView));
-                        gameService.End();
-                        Timer.Stop();
-                    }
-                });
+                        if (result.Result == ButtonResult.Yes)
+                        {
+                            regionManager.RequestNavigate("MainRegion", nameof(TitleView));
+                            isLoaded = false;
+                            gameService.End();
+                        }
+                    });
+                }
             }
         }
 

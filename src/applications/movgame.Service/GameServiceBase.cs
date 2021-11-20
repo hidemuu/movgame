@@ -96,7 +96,11 @@ namespace movgame.Service
         /// </summary>
         public virtual void Initialize()
         {
+            screenBitmap = new Bitmap(FrameWidth, FrameHeight);
+            ScreenGraphics = Graphics.FromImage(screenBitmap);
             gameEngine.Initialize(landMarkRepository.Get()[0]);
+            isActive = true;
+            IsGameOver = false;
         }
 
 
@@ -168,6 +172,7 @@ namespace movgame.Service
             isActive = false;
             //スレッド終了待機
             task.Wait();
+            IsGameOver = false;
         }
 
         /// <summary>

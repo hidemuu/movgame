@@ -60,7 +60,7 @@ namespace movgame.Models
         /// <summary>
         /// 入力キーコード
         /// </summary>
-        public int KeyCode { get; set; } = 0;
+        public int KeyCode { get; set; } = KEY_CODE_NONE;
         /// <summary>
         /// キャラクタ配列
         /// </summary>
@@ -93,6 +93,9 @@ namespace movgame.Models
         {
             Map = GameMap.MakeMap(landMark);
             breadcrumbs = new Breadcrumbs(15, this, landMark.GetRow(), landMark.GetCol());
+            Characters.Clear();
+            Aliens.Clear();
+            KeyCode = KEY_CODE_NONE;
             AddCharacters(Characters, Map);
             AddCharacters(Characters, breadcrumbs.breads);
             SortCharacters(new int[] { CharacterBase.WALL, CharacterBase.BREAD, CharacterBase.ALIEN, CharacterBase.PLAYER });
