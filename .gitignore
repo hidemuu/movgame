@@ -1,0 +1,77 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.bak
+*.pyc
+*.pyo
+*.sdf
+*.vssscc
+*.vspscc
+*.ncb
+*.aps
+*.opendb
+*.VC.db
+*.VC.opendb
+*.pdb
+*.obj
+*.exe
+*.dll
+*.intelliSense.json
+*.cache
+*.com
+*.lib
+*.o
+*.exp
+*.ilk
+*.opt
+*.aps
+*.res
+*.pch
+*.ipch
+*.recipe
+*.tdl
+*.tlh
+*.tli
+*.tmp
+*.log
+*.vsix
+*.builds
+*.natvis
+*.codeanalysis
+*.pgm
+*.sbr
+*.bsc
+*.mdf
+*.ldf
+*.ndf
+*.sql
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+build/
+Build/
+*.min.js
+*.min.css
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+*.orig
+*.lock.json # package-lock.json, project.assets.json, etc.
+
+# Node.js for ClientApp
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Misc
+temp/
+tmp/
+TestResults/
+Thumbs.db
