@@ -1,9 +1,0 @@
-C:\Users\nando\Documents\GitHub\movgame\src\infrastructures\movgame.Utilities\bin\Debug\netstandard2.0\movgame.Utilities.deps.json
-C:\Users\nando\Documents\GitHub\movgame\src\infrastructures\movgame.Utilities\bin\Debug\netstandard2.0\movgame.Utilities.dll
-C:\Users\nando\Documents\GitHub\movgame\src\infrastructures\movgame.Utilities\bin\Debug\netstandard2.0\movgame.Utilities.pdb
-C:\Users\nando\Documents\GitHub\movgame\src\infrastructures\movgame.Utilities\obj\Debug\netstandard2.0\movgame.Utilities.csproj.AssemblyReference.cache
-C:\Users\nando\Documents\GitHub\movgame\src\infrastructures\movgame.Utilities\obj\Debug\netstandard2.0\movgame.Utilities.AssemblyInfoInputs.cache
-C:\Users\nando\Documents\GitHub\movgame\src\infrastructures\movgame.Utilities\obj\Debug\netstandard2.0\movgame.Utilities.AssemblyInfo.cs
-C:\Users\nando\Documents\GitHub\movgame\src\infrastructures\movgame.Utilities\obj\Debug\netstandard2.0\movgame.Utilities.csproj.CoreCompileInputs.cache
-C:\Users\nando\Documents\GitHub\movgame\src\infrastructures\movgame.Utilities\obj\Debug\netstandard2.0\movgame.Utilities.dll
-C:\Users\nando\Documents\GitHub\movgame\src\infrastructures\movgame.Utilities\obj\Debug\netstandard2.0\movgame.Utilities.pdb
