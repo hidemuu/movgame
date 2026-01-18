@@ -132,19 +132,22 @@ namespace movgame.Service
                         }
                     }
                     //ゲームオーバー判定
-                    foreach (var character in gameEngine.Characters)
+                    var player = gameEngine.Characters.Find(c => c.TypeCode == CharacterBase.PLAYER);
+                    if (player != null)
                     {
-                        switch (character.TypeCode)
+                        foreach (var alien in gameEngine.Aliens)
                         {
-                            case CharacterBase.PLAYER:
-                                if (character.IsDamage()) 
-                                {
-                                    character.AddLife(-1);
-                                }
-                                if (character.Life <= 0) IsGameOver = true;
+                            if (player.X < alien.X + gameEngine.UnitWidth - 2 &&
+                                player.X + gameEngine.UnitWidth - 2 > alien.X &&
+                                player.Y < alien.Y + gameEngine.UnitHeight - 2 &&
+                                player.Y + gameEngine.UnitHeight - 2 > alien.Y)
+                            {
+                                player.TakeDamage(1);
                                 break;
+                            }
                         }
                     }
+                    if (player.Life <= 0) IsGameOver = true;
                     //ビットマップ画面の作成処理
                     IsBuilding = true;
                     ClearScreen();
