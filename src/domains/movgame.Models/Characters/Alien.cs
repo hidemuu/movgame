@@ -68,16 +68,19 @@ namespace movgame.Models.Characters
                 x1 = X + dirOffset[nextDirection, 0];
                 y1 = Y + dirOffset[nextDirection, 1];
             }
-            if (!GameEngine.IsWall(x1, y1) && GameEngine.GetCollision(this, x1, y1) == CharacterBase.NONE)
+            if (!GameEngine.IsWall(x1, y1))
             {
-                Direction = nextDirection;
-                SetPosition(x1, y1);
-            }
-
-            if (GameEngine.GetCollision(this, x1, y1) == CharacterBase.PLAYER)
-            {
-                var player = GameEngine.Characters.Find(c => c.TypeCode == CharacterBase.PLAYER);
-                player?.TakeDamage(1);
+                var typeCode = GameEngine.GetCollision(this, x1, y1);
+                if (typeCode == CharacterBase.NONE)
+                {
+                    Direction = nextDirection;
+                    SetPosition(x1, y1);
+                }
+                else if (typeCode == CharacterBase.PLAYER)
+                {
+                    var player = GameEngine.Characters.Find(c => c.TypeCode == CharacterBase.PLAYER);
+                    player?.TakeDamage(1);
+                }
             }
         }
 

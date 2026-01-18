@@ -207,6 +207,22 @@ namespace movgame.Models
                    Map[row2, col2] == CharacterBase.WALL;
         }
 
+        public bool IsPlayer(int x, int y)
+        {
+            var player = Characters.Find(c => c.TypeCode == CharacterBase.PLAYER);
+            if (player != null)
+            {
+                if (x < player.X + UnitWidth &&
+                    x + UnitWidth > player.X &&
+                    y < player.Y + UnitHeight &&
+                    y + UnitHeight > player.Y)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         /// <summary>
         /// 衝突検出
         /// </summary>
