@@ -21,8 +21,6 @@ namespace movgame.Models.Characters
         /// </summary>
         private int lastDy = -1;
 
-        private bool isCollision = false;
-        
         #endregion
 
         #region プロパティ
@@ -52,7 +50,6 @@ namespace movgame.Models.Characters
 
         public override bool Move()
         {
-            isCollision = false;
             //移動量
             var dx = 0;
             var dy = 0;
@@ -99,19 +96,9 @@ namespace movgame.Models.Characters
             return false;
         }
 
-        /// <summary>
-        /// ダメージ判定
-        /// </summary>
-        /// <returns></returns>
-        public override bool IsDamage()
-        {
-            if (isCollision) return true;
-            return false;
-        }
-
         public override void TakeDamage(int damage)
         {
-            isCollision = true;
+            Life -= damage;
         }
 
         #endregion

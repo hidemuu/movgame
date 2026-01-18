@@ -30,10 +30,6 @@ namespace movgame.Models.Characters
         {
             return false;
         }
-        public override bool IsDamage()
-        {
-            return false;
-        }
 
         public override void TakeDamage(int damage)
         {

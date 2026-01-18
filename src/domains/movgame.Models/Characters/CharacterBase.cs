@@ -126,12 +126,6 @@ namespace movgame.Models.Characters
         public abstract bool Move();
 
         /// <summary>
-        /// ダメージ判定
-        /// </summary>
-        /// <returns></returns>
-        public abstract bool IsDamage();
-
-        /// <summary>
         /// ダメージを受ける
         /// </summary>
         /// <param name="damage"></param>
