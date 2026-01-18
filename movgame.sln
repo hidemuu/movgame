@@ -21,10 +21,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.Models", "src\domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.Service", "src\applications\movgame.Service\movgame.Service.csproj", "{75F88934-A840-48CB-902E-406F4B3DE032}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.WinForm", "app\movgame.WinForm\movgame.WinForm.csproj", "{10E09224-6093-4A61-B2FF-4E0AB1A811BC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.WinForm.ViewModels", "src\presentations\movgame.WinForm.ViewModels\movgame.WinForm.ViewModels.csproj", "{E39EFC50-5A7C-4773-A44F-097CD45BA617}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.Wpf", "app\movgame.Wpf\movgame.Wpf.csproj", "{C2D48AAC-1518-4396-856B-340CC5E45D98}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movgame.Wpf.Views", "src\presentations\movgame.Wpf.Views\movgame.Wpf.Views.csproj", "{E798E22D-242F-4DF3-8A23-D723AE02B99C}"
