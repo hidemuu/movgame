@@ -39,5 +39,10 @@ namespace movgame.Models.Characters
         {
             return false;
         }
+
+        public override void TakeDamage(int damage)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

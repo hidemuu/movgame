@@ -52,6 +52,7 @@ namespace movgame.Models.Characters
 
         public override bool Move()
         {
+            isCollision = false;
             //移動量
             var dx = 0;
             var dy = 0;
@@ -94,7 +95,7 @@ namespace movgame.Models.Characters
                 lastDy = dy;
                 return true;
             }
-            if (GameEngine.GetCollision(this, x, y) == CharacterBase.ALIEN) isCollision = true;
+            if (GameEngine.GetCollision(this, x, y) == CharacterBase.ALIEN) TakeDamage(1);
             return false;
         }
 
@@ -106,6 +107,11 @@ namespace movgame.Models.Characters
         {
             if (isCollision) return true;
             return false;
+        }
+
+        public override void TakeDamage(int damage)
+        {
+            isCollision = true;
         }
 
         #endregion

@@ -73,6 +73,12 @@ namespace movgame.Models.Characters
                 Direction = nextDirection;
                 SetPosition(x1, y1);
             }
+
+            if (GameEngine.GetCollision(this, x1, y1) == CharacterBase.PLAYER)
+            {
+                var player = GameEngine.Characters.Find(c => c.TypeCode == CharacterBase.PLAYER);
+                player?.TakeDamage(1);
+            }
         }
 
 
@@ -86,6 +92,11 @@ namespace movgame.Models.Characters
         public override bool IsDamage()
         {
             return false;
+        }
+
+        public override void TakeDamage(int damage)
+        {
+            // A Tsorinoko doesn't take damage
         }
         #endregion
 

@@ -132,6 +132,12 @@ namespace movgame.Models.Characters
         public abstract bool IsDamage();
 
         /// <summary>
+        /// ダメージを受ける
+        /// </summary>
+        /// <param name="damage"></param>
+        public abstract void TakeDamage(int damage);
+
+        /// <summary>
         /// ライフ増減
         /// </summary>
         /// <param name="count"></param>
