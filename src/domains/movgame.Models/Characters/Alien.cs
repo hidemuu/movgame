@@ -62,7 +62,8 @@ namespace movgame.Models.Characters
         {
             var x1 = X + dirOffset[nextDirection, 0];
             var y1 = Y + dirOffset[nextDirection, 1];
-            if (GameEngine.IsWall(x1, y1) || GameEngine.GetCollision(this, x1, y1) != CharacterBase.NONE)
+            var typeCode = GameEngine.GetCollision(this, x1, y1);
+            if (GameEngine.IsWall(x1, y1) || (typeCode != CharacterBase.NONE && typeCode != CharacterBase.PLAYER))
             {
                 nextDirection = (nextDirection + tryPlan[(int)(rnd.NextDouble() * 2.1)]) % 4;
                 x1 = X + dirOffset[nextDirection, 0];
@@ -70,7 +71,7 @@ namespace movgame.Models.Characters
             }
             if (!GameEngine.IsWall(x1, y1))
             {
-                var typeCode = GameEngine.GetCollision(this, x1, y1);
+                typeCode = GameEngine.GetCollision(this, x1, y1);
                 if (typeCode == CharacterBase.NONE)
                 {
                     Direction = nextDirection;
