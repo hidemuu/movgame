@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bug Fix"
+  short_description: "Diagnose and repair Movgame defects"
+  default_prompt: "Use $bug-fix to diagnose and fix this Movgame bug, including root-cause analysis, targeted code changes, and verification."
